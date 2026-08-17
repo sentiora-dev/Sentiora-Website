@@ -13,7 +13,7 @@
       --surface-raised: #111111;
       --ink: #f5f5f0;
       --muted: #93938e;
-      --faint: #555550;
+      --faint: #797974;
       --line: rgba(245, 245, 240, 0.14);
       --line-soft: rgba(245, 245, 240, 0.07);
       --signal: #d5ff70;
@@ -28,6 +28,23 @@
     picture { display: contents; }
 
     html { scroll-behavior: smooth; }
+
+    /* Some people get motion sickness from movement on a page, and say so in
+       their system settings. Honour it: the reveal still reveals, it just
+       arrives instead of sliding. */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      [data-reveal] { opacity: 1 !important; transform: none !important; }
+      .button:hover, .button:focus-visible { transform: none; }
+    }
 
     body {
       margin: 0;

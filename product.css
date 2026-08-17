@@ -5,7 +5,7 @@ picture { display: contents; }
   --surface-raised: #121212;
   --ink: #f5f5f0;
   --muted: #94948f;
-  --faint: #5c5c57;
+  --faint: #797974;
   --line: rgba(245, 245, 240, 0.14);
   --line-soft: rgba(245, 245, 240, 0.07);
   --accent: #d5ff70;
@@ -740,6 +740,21 @@ h1 .product-prefix img {
    layout, because the row is already taller than the text. */
 .product-links a,
 .header-nav a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+
+/* Some people get motion sickness from movement on a page, and say so in their
+   system settings. Honour it: keep every state change, drop the travel. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .button:hover, .button:focus-visible { transform: none; }
+}
 
 /* Keys named in the copy (Shift, 0) should read as keys, not as body text. */
 kbd {
