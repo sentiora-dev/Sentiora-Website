@@ -741,6 +741,18 @@ h1 .product-prefix img {
 .product-links a,
 .header-nav a { display: inline-flex; align-items: center; min-height: 2.75rem; }
 
+/* Keys named in the copy (Shift, 0) should read as keys, not as body text. */
+kbd {
+  padding: 0.12em 0.42em;
+  border: 1px solid var(--line);
+  border-radius: 0.25rem;
+  background: var(--surface-raised);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.82em;
+  white-space: nowrap;
+}
+
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
 @media (max-width: 980px) {
