@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="That page does not exist on sentiora.dev.">
+  <meta name="theme-color" content="#050505">
+  <title>Page not found — Sentiora</title>
+  <link rel="stylesheet" href="/product.css">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="robots" content="noindex">
+  <style>
+    .notfound {
+      display: grid;
+      align-content: center;
+      justify-items: start;
+      min-height: 74vh;
+      gap: 1.5rem;
+    }
+
+    .notfound-code {
+      color: var(--accent);
+      font-family: var(--mono, monospace);
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .notfound h1 {
+      margin: 0;
+      max-width: 18ch;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      line-height: 1.05;
+    }
+
+    .notfound p {
+      margin: 0;
+      max-width: 52ch;
+      color: var(--muted);
+    }
+
+    .notfound-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .notfound-links a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.15rem;
+      transition: color 160ms ease, border-color 160ms ease;
+    }
+
+    .notfound-links a:hover,
+    .notfound-links a:focus-visible {
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+  </style>
+</head>
+<body style="--accent:#d5ff70;--accent-soft:rgba(213,255,112,.14)">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand-wordmark" href="/" aria-label="Sentiora home"><picture><source srcset="/assets/sentiora-wordmark-4k.webp" type="image/webp"><img class="brand-wordmark-name" src="/assets/sentiora-wordmark-4k.png" alt="" width="560" height="70" decoding="async"></picture><span class="brand-wordmark-tagline">Intelligence. Software. Evolution.</span></a>
+      <nav class="header-nav" aria-label="Main navigation"><a href="/">Home ↗</a></nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="shell notfound">
+      <p class="notfound-code">Error 404</p>
+      <h1>This page is not here.</h1>
+      <p>The address may have changed, or the link that brought you here may be out of date. Everything Sentiora publishes is one step away.</p>
+      <div class="notfound-links">
+        <a href="/">Home</a>
+        <a href="/diskmanager.html">Disk Manager</a>
+        <a href="/speechbubbles.html">ComicBubble</a>
+        <a href="/opticalburn-suite.html">OpticalBurn Suite</a>
+        <a href="/docpilot.html">DocPilot</a>
+        <a href="mailto:contact@sentiora.dev?subject=%5BSentiora%20Website%5D%20Broken%20link&amp;body=I%20reached%20a%20page%20that%20does%20not%20exist.%0A%0AThe%20link%20I%20followed%3A%0A">Report a broken link</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="product-links">
+    <div class="shell product-links-inner">
+      <span>© 2026 <picture><source srcset="/assets/sentiora-wordmark-4k.webp" type="image/webp"><img class="footer-sentiora" src="/assets/sentiora-wordmark-4k.png" alt="Sentiora" width="560" height="70" decoding="async"></picture></span>
+      <nav aria-label="Sentiora products"><a href="/diskmanager.html">Disk Manager</a><a href="/speechbubbles.html">ComicBubble</a><a href="/opticalburn-suite.html">OpticalBurn Suite</a><a href="/docpilot.html">DocPilot</a></nav>
+    </div>
+  </footer>
+</body>
+</html>

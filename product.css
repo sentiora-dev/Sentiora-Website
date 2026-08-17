@@ -1,3 +1,4 @@
+picture { display: contents; }
 :root {
   --bg: #050505;
   --surface: #0b0b0b;
@@ -731,8 +732,14 @@ h1 .product-prefix img {
 .product-links-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; color: var(--faint); font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.09em; text-transform: uppercase; }
 .product-links-inner > span { display: inline-flex; align-items: center; gap: 0.45rem; }
 .footer-sentiora { width: 4.35rem; }
-.product-links nav { display: flex; flex-wrap: wrap; gap: 1.3rem; }
+.product-links nav { display: flex; flex-wrap: wrap; gap: 0.35rem 1.3rem; }
 .product-links a:hover, .product-links a:focus-visible { color: var(--ink); }
+
+/* The footer links sat 14px tall, which is a hard target to hit with a thumb.
+   The padding lifts them toward the 44px touch guidance without moving the
+   layout, because the row is already taller than the text. */
+.product-links a,
+.header-nav a { display: inline-flex; align-items: center; min-height: 2.75rem; }
 
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
@@ -747,7 +754,9 @@ h1 .product-prefix img {
 
 @media (max-width: 760px) {
   .shell { width: min(100% - 2rem, 42rem); }
-  .header-nav a:not(:last-child) { display: none; }
+  /* Keep the action link (Download / Access) next to Home. Hiding everything but
+     the last link took the page's main call to action off every phone. */
+  .header-nav a:not(:last-child):not(:nth-last-child(2)) { display: none; }
   .app-layout { grid-template-columns: 7.5rem minmax(0, 1fr); min-height: 26rem; }
   .doc-layout { grid-template-columns: 7rem minmax(0, 1fr); }
   .doc-layout .ai-panel { display: none; }
