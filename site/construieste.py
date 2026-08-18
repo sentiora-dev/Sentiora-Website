@@ -108,7 +108,9 @@ CUVINTE = {1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six",
 def card(p):
     return (
         '          <a class="product-card" href="%s.html" '
-        'style="--product-color:%s;--product-glow:%s">\n'
+        'style="--product-color:%s;--product-glow:%s;'
+        '--product-mark:image-set(url(&quot;assets/%s.webp&quot;) type(&quot;image/webp&quot;),'
+        'url(&quot;assets/%s.png&quot;) type(&quot;image/png&quot;))">\n'
         '            <div class="product-card-content">'
         '<span class="product-code">%s</span>'
         '<h4><span class="card-sentiora"><picture>'
@@ -117,7 +119,7 @@ def card(p):
         'height="70" decoding="async"></picture></span>%s</h4>'
         '<p>%s</p><span class="product-link">%s</span></div>\n'
         '          </a>\n'
-        % (p["slug"], p["culoare"], p["halou"], p["cod"],
+        % (p["slug"], p["culoare"], p["halou"], p["marca"], p["marca"], p["cod"],
            p["nume_card"], p["text_card"], p["link_card"])
     )
 

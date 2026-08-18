@@ -7,11 +7,11 @@
       "descriere": "Speech bubbles for comics. Drag the lettering exactly where you want it, bring your own bubbles or use twelve built-in shapes, and export at 300 DPI for print. Works offline.",
       "familie": "comics",
       "ordine": 1,
-      "culoare": "#ffd447",
-      "halou": "rgba(130,79,255,.28)",
-      "theme_color": "#171820",
+      "culoare": "#f8c028",
+      "halou": "rgba(248,192,40,.26)",
+      "theme_color": "#13141b",
       "body_class": "comicbubble-theme",
-      "body_style": "--bg:#13141b;--surface:#1b1d27;--surface-raised:#252837;--ink:#fffaf0;--muted:#b8bac6;--faint:#7b7f93;--line:rgba(255,250,240,.16);--line-soft:rgba(255,250,240,.08);--accent:#ffd447;--accent-soft:rgba(130,79,255,.23)",
+      "body_style": "--bg:#13141b;--surface:#1b1d27;--surface-raised:#252837;--ink:#fffaf0;--muted:#b8bac6;--faint:#7b7f93;--line:rgba(255,250,240,.16);--line-soft:rgba(255,250,240,.08);--accent:#f8c028;--accent-soft:rgba(248,192,40,.20)",
       "og_image": "og-speechbubbles.jpg",
       "nav": [
         {
@@ -37,21 +37,22 @@
       "nume_scurt": "ComicBubble",
       "cod": "01 / COMIC AUTHORING",
       "nume_card": "ComicBubble",
-      "text_card": "Speech bubbles for comics. Drag the lettering exactly where you want it, then send the bubble to the page.",
-      "link_card": "View product preview ↗"
+      "text_card": "Speech bubbles for comics. Bring your own bubbles and your own fonts, and drag the lettering exactly where you want it.",
+      "link_card": "View product preview ↗",
+      "marca": "marca-speechbubbles"
     },
     {
       "slug": "opticalburn-suite",
       "nume": "Sentiora OpticalBurn Suite",
       "titlu": "Sentiora OpticalBurn Suite — Burn and verify discs",
       "descriere": "Burn, copy, rip and verify CD, DVD and Blu-ray, and rescue discs that are already failing. Bit-by-bit verification, AES-256-GCM encryption and Reed-Solomon recovery. Eleven languages, no account.",
-      "familie": "system",
+      "familie": "tools",
       "ordine": 2,
-      "culoare": "#8ee7ff",
-      "halou": "rgba(142,231,255,.2)",
-      "theme_color": "#050505",
+      "culoare": "#f86868",
+      "halou": "rgba(248,104,104,.24)",
+      "theme_color": "#0d0708",
       "body_class": "",
-      "body_style": "--accent:#8ee7ff;--accent-soft:rgba(142,231,255,.13)",
+      "body_style": "--bg:#0d0708;--surface:#150e0f;--surface-raised:#1e1516;--ink:#fdf6f4;--muted:#c8b8b6;--faint:#8e7d7c;--line:rgba(253,246,244,.16);--line-soft:rgba(253,246,244,.08);--accent:#f86868;--accent-soft:rgba(248,104,104,.18)",
       "og_image": "og-image.jpg",
       "nav": [
         {
@@ -78,20 +79,21 @@
       "cod": "02 / OPTICAL MEDIA",
       "nume_card": "OpticalBurn Suite",
       "text_card": "Burn, copy, rip and verify CD, DVD and Blu-ray — and rescue the discs that are already failing.",
-      "link_card": "View product preview ↗"
+      "link_card": "View product preview ↗",
+      "marca": "marca-opticalburn-suite"
     },
     {
       "slug": "docpilot",
       "nume": "Sentiora DocPilot",
       "titlu": "Sentiora DocPilot — Offline PDF and document suite",
       "descriere": "A complete PDF and document suite that runs entirely on your PC: read and annotate, edit pages, redact for real, sign, convert, and OCR in twelve languages. Your files never leave the machine.",
-      "familie": "documents",
+      "familie": "tools",
       "ordine": 3,
-      "culoare": "#b9a3ff",
-      "halou": "rgba(185,163,255,.2)",
-      "theme_color": "#050505",
+      "culoare": "#d8d8e4",
+      "halou": "rgba(216,216,228,.18)",
+      "theme_color": "#08080b",
       "body_class": "",
-      "body_style": "--accent:#b9a3ff;--accent-soft:rgba(185,163,255,.14)",
+      "body_style": "--bg:#08080b;--surface:#101014;--surface-raised:#17171d;--ink:#f4f4f8;--muted:#b6b6c2;--faint:#83838f;--line:rgba(244,244,248,.16);--line-soft:rgba(244,244,248,.08);--accent:#d8d8e4;--accent-soft:rgba(216,216,228,.14)",
       "og_image": "og-image.jpg",
       "nav": [
         {
@@ -118,20 +120,21 @@
       "cod": "03 / DOCUMENTS",
       "nume_card": "DocPilot",
       "text_card": "A full PDF and document suite — read, edit pages, redact, sign, convert and OCR, entirely offline.",
-      "link_card": "View product preview ↗"
+      "link_card": "View product preview ↗",
+      "marca": "marca-docpilot"
     },
     {
       "slug": "diskmanager",
       "nume": "Sentiora Disk Manager",
       "titlu": "Sentiora Disk Manager — Read the signs early",
       "descriere": "Sentiora Disk Manager reads SMART and NVMe data directly from your drives, tracks health over time and keeps data-changing tools safely guarded.",
-      "familie": "system",
+      "familie": "tools",
       "ordine": 4,
-      "culoare": "#aeb1ff",
-      "halou": "rgba(64,67,160,.34)",
-      "theme_color": "#101050",
+      "culoare": "#2060e8",
+      "halou": "rgba(32,96,232,.30)",
+      "theme_color": "#09093d",
       "body_class": "diskmanager-theme",
-      "body_style": "--bg:#09093d;--surface:#101050;--surface-raised:#1a1a60;--ink:#f7f7fb;--muted:#b8b9d1;--faint:#797ba8;--line:rgba(240,240,255,.16);--line-soft:rgba(240,240,255,.08);--accent:#f0f0f0;--accent-soft:rgba(118,122,218,.18)",
+      "body_style": "--bg:#09093d;--surface:#101050;--surface-raised:#1a1a60;--ink:#f7f7fb;--muted:#b8b9d1;--faint:#797ba8;--line:rgba(240,240,255,.16);--line-soft:rgba(240,240,255,.08);--accent:#4077eb;--accent-soft:rgba(32,96,232,.24)",
       "og_image": "og-diskmanager.jpg",
       "nav": [
         {
@@ -158,7 +161,8 @@
       "cod": "04 / WINDOWS STORAGE",
       "nume_card": "Disk Manager",
       "text_card": "SMART and NVMe health, surface scan, benchmark, space analysis and clear disk guidance.",
-      "link_card": "View product &amp; download ↗"
+      "link_card": "View product &amp; download ↗",
+      "marca": "marca-diskmanager"
     }
   ],
   "familii": [
@@ -168,15 +172,10 @@
       "ordine": 1
     },
     {
-      "id": "system",
-      "nume": "System tools",
+      "id": "tools",
+      "nume": "Tools",
       "ordine": 2
-    },
-    {
-      "id": "documents",
-      "nume": "Documents",
-      "ordine": 3
     }
   ],
-  "grupeaza_pe_familii": false
+  "grupeaza_pe_familii": true
 }

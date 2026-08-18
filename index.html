@@ -378,6 +378,10 @@
        filing rather than as a family. */
     .product-family + .product-family { margin-top: 2.75rem; }
 
+    /* A family with an odd number of products would otherwise leave half a card
+       of empty grid, which reads as a missing tile rather than as a full set. */
+    .product-grid > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+
     .family-name {
       margin: 0 0 0.9rem;
       color: var(--muted);
@@ -410,8 +414,29 @@
       transition: transform 220ms ease;
     }
 
+    /* The mark from the application itself, in the colour it already has on the
+       customer's desktop. Sitting quietly behind the words, it makes the card
+       recognisable before the name is read. */
+    .product-card::before {
+      position: absolute;
+      right: -3rem;
+      bottom: -2.5rem;
+      width: 13.5rem;
+      height: 13.5rem;
+      content: "";
+      opacity: 0.16;
+      background-image: var(--product-mark);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      transition: opacity 220ms ease, transform 220ms ease;
+    }
+
     .product-card:hover, .product-card:focus-visible { background: var(--surface-raised); }
     .product-card:hover::after, .product-card:focus-visible::after { transform: scale(1.18); }
+
+    .product-card:hover::before,
+    .product-card:focus-visible::before { opacity: 0.28; transform: scale(1.07); }
 
     .product-card-content { position: relative; z-index: 1; display: flex; flex-direction: column; width: 100%; }
     .product-code { color: var(--product-color, var(--signal)); font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; }
@@ -557,7 +582,7 @@
           <div class="section-index">/ 002 — What we build</div>
           <div>
             <h2>Intelligent applications, built close to real work.</h2>
-            <p class="section-intro"><span class="inline-sentiora"><picture><source srcset="assets/sentiora-wordmark-4k.webp" type="image/webp"><img src="assets/sentiora-wordmark-4k.png" alt="Sentiora" width="560" height="70" decoding="async"></picture></span> is an independent software company creating focused applications with AI at their core. We develop alongside a small circle of early-access partners, using real workflows and direct feedback to make each product clearer and more useful.</p>
+            <p class="section-intro"><span class="inline-sentiora"><picture><source srcset="assets/sentiora-wordmark-4k.webp" type="image/webp"><img src="assets/sentiora-wordmark-4k.png" alt="Sentiora" width="560" height="70" decoding="async"></picture></span> is an independent software company creating focused applications with intelligence at their core. Every one of them is finished in the hands of people whose work depends on it, before it is sold to anyone else. That is deliberate: software drawn up in a meeting room arrives full of features nobody asked for, and missing the one that mattered. Ours arrives having already survived a real week of work.</p>
           </div>
         </div>
 
@@ -566,7 +591,7 @@
           <div class="collab-points" aria-label="What Sentiora builds">
             <div class="collab-point"><span>01</span><div><strong>AI-native applications</strong><p>Useful intelligence, built into the product instead of added as decoration.</p></div></div>
             <div class="collab-point"><span>02</span><div><strong>Human-centered tools</strong><p>Clear interfaces that keep people informed, capable and in control.</p></div></div>
-            <div class="collab-point"><span>03</span><div><strong>Systems that evolve</strong><p>Strong foundations that can grow without losing their purpose or simplicity.</p></div></div>
+            <div class="collab-point"><span>03</span><div><strong>Proven before it ships</strong><p>Nothing reaches you on the strength of a plan. Every release has already done somebody&apos;s real work first.</p></div></div>
           </div>
         </div>
 
@@ -576,19 +601,28 @@
           <p>Four Windows applications that do their work on your own machine — no accounts, no uploads, no telemetry.</p>
         </div>
 
-        <div class="product-grid" data-reveal>
-          <a class="product-card" href="speechbubbles.html" style="--product-color:#ffd447;--product-glow:rgba(130,79,255,.28)">
-            <div class="product-card-content"><span class="product-code">01 / COMIC AUTHORING</span><h4><span class="card-sentiora"><picture><source srcset="assets/sentiora-wordmark-4k.webp" type="image/webp"><img src="assets/sentiora-wordmark-4k.png" alt="Sentiora" width="560" height="70" decoding="async"></picture></span>ComicBubble</h4><p>Speech bubbles for comics. Drag the lettering exactly where you want it, then send the bubble to the page.</p><span class="product-link">View product preview ↗</span></div>
+        <div class="product-family" data-reveal>
+          <h4 class="family-name">Comics</h4>
+          <div class="product-grid">
+          <a class="product-card" href="speechbubbles.html" style="--product-color:#f8c028;--product-glow:rgba(248,192,40,.26);--product-mark:image-set(url(&quot;assets/marca-speechbubbles.webp&quot;) type(&quot;image/webp&quot;),url(&quot;assets/marca-speechbubbles.png&quot;) type(&quot;image/png&quot;))">
+            <div class="product-card-content"><span class="product-code">01 / COMIC AUTHORING</span><h4><span class="card-sentiora"><picture><source srcset="assets/sentiora-wordmark-4k.webp" type="image/webp"><img src="assets/sentiora-wordmark-4k.png" alt="Sentiora" width="560" height="70" decoding="async"></picture></span>ComicBubble</h4><p>Speech bubbles for comics. Bring your own bubbles and your own fonts, and drag the lettering exactly where you want it.</p><span class="product-link">View product preview ↗</span></div>
           </a>
-          <a class="product-card" href="opticalburn-suite.html" style="--product-color:#8ee7ff;--product-glow:rgba(142,231,255,.2)">
+          </div>
+        </div>
+
+        <div class="product-family" data-reveal>
+          <h4 class="family-name">Tools</h4>
+          <div class="product-grid">
+          <a class="product-card" href="opticalburn-suite.html" style="--product-color:#f86868;--product-glow:rgba(248,104,104,.24);--product-mark:image-set(url(&quot;assets/marca-opticalburn-suite.webp&quot;) type(&quot;image/webp&quot;),url(&quot;assets/marca-opticalburn-suite.png&quot;) type(&quot;image/png&quot;))">
             <div class="product-card-content"><span class="product-code">02 / OPTICAL MEDIA</span><h4><span class="card-sentiora"><picture><source srcset="assets/sentiora-wordmark-4k.webp" type="image/webp"><img src="assets/sentiora-wordmark-4k.png" alt="Sentiora" width="560" height="70" decoding="async"></picture></span>OpticalBurn Suite</h4><p>Burn, copy, rip and verify CD, DVD and Blu-ray — and rescue the discs that are already failing.</p><span class="product-link">View product preview ↗</span></div>
           </a>
-          <a class="product-card" href="docpilot.html" style="--product-color:#b9a3ff;--product-glow:rgba(185,163,255,.2)">
+          <a class="product-card" href="docpilot.html" style="--product-color:#d8d8e4;--product-glow:rgba(216,216,228,.18);--product-mark:image-set(url(&quot;assets/marca-docpilot.webp&quot;) type(&quot;image/webp&quot;),url(&quot;assets/marca-docpilot.png&quot;) type(&quot;image/png&quot;))">
             <div class="product-card-content"><span class="product-code">03 / DOCUMENTS</span><h4><span class="card-sentiora"><picture><source srcset="assets/sentiora-wordmark-4k.webp" type="image/webp"><img src="assets/sentiora-wordmark-4k.png" alt="Sentiora" width="560" height="70" decoding="async"></picture></span>DocPilot</h4><p>A full PDF and document suite — read, edit pages, redact, sign, convert and OCR, entirely offline.</p><span class="product-link">View product preview ↗</span></div>
           </a>
-          <a class="product-card" href="diskmanager.html" style="--product-color:#aeb1ff;--product-glow:rgba(64,67,160,.34)">
+          <a class="product-card" href="diskmanager.html" style="--product-color:#2060e8;--product-glow:rgba(32,96,232,.30);--product-mark:image-set(url(&quot;assets/marca-diskmanager.webp&quot;) type(&quot;image/webp&quot;),url(&quot;assets/marca-diskmanager.png&quot;) type(&quot;image/png&quot;))">
             <div class="product-card-content"><span class="product-code">04 / WINDOWS STORAGE</span><h4><span class="card-sentiora"><picture><source srcset="assets/sentiora-wordmark-4k.webp" type="image/webp"><img src="assets/sentiora-wordmark-4k.png" alt="Sentiora" width="560" height="70" decoding="async"></picture></span>Disk Manager</h4><p>SMART and NVMe health, surface scan, benchmark, space analysis and clear disk guidance.</p><span class="product-link">View product &amp; download ↗</span></div>
           </a>
+          </div>
         </div>
 
 <!-- /GENERAT:PRODUSE -->
