@@ -5,7 +5,7 @@
       "nume": "Sentiora ComicBubble",
       "titlu": "Sentiora ComicBubble — Bubble Maker",
       "descriere": "Speech bubbles for comics. Drag the lettering exactly where you want it, bring your own bubbles or use twelve built-in shapes, and export at 300 DPI for print. Works offline.",
-      "familie": "Benzi desenate",
+      "familie": "comics",
       "ordine": 1,
       "culoare": "#ffd447",
       "halou": "rgba(130,79,255,.28)",
@@ -34,14 +34,18 @@
       "support_mailto": "mailto:contact@sentiora.dev?subject=%5BComicBubble%5D%20Support%20request&amp;body=Product%3A%20Sentiora%20ComicBubble%0ARequest%20type%3A%20Technical%20support%0A%0ADescribe%20the%20problem%3A%0A",
       "are_dialog": true,
       "are_script": true,
-      "nume_scurt": "ComicBubble"
+      "nume_scurt": "ComicBubble",
+      "cod": "01 / COMIC AUTHORING",
+      "nume_card": "ComicBubble",
+      "text_card": "Speech bubbles for comics. Drag the lettering exactly where you want it, then send the bubble to the page.",
+      "link_card": "View product preview ↗"
     },
     {
       "slug": "opticalburn-suite",
       "nume": "Sentiora OpticalBurn Suite",
       "titlu": "Sentiora OpticalBurn Suite — Burn and verify discs",
       "descriere": "Burn, copy, rip and verify CD, DVD and Blu-ray, and rescue discs that are already failing. Bit-by-bit verification, AES-256-GCM encryption and Reed-Solomon recovery. Eleven languages, no account.",
-      "familie": "Sistem",
+      "familie": "system",
       "ordine": 2,
       "culoare": "#8ee7ff",
       "halou": "rgba(142,231,255,.2)",
@@ -70,14 +74,18 @@
       "support_mailto": "mailto:contact@sentiora.dev?subject=%5BOpticalBurn%20Suite%5D%20Support%20request&amp;body=Product%3A%20Sentiora%20OpticalBurn%20Suite%0ARequest%20type%3A%20Technical%20support%0A%0ADescribe%20the%20problem%3A%0A",
       "are_dialog": false,
       "are_script": false,
-      "nume_scurt": "OpticalBurn Suite"
+      "nume_scurt": "OpticalBurn Suite",
+      "cod": "02 / OPTICAL MEDIA",
+      "nume_card": "OpticalBurn Suite",
+      "text_card": "Burn, copy, rip and verify CD, DVD and Blu-ray — and rescue the discs that are already failing.",
+      "link_card": "View product preview ↗"
     },
     {
       "slug": "docpilot",
       "nume": "Sentiora DocPilot",
       "titlu": "Sentiora DocPilot — Offline PDF and document suite",
       "descriere": "A complete PDF and document suite that runs entirely on your PC: read and annotate, edit pages, redact for real, sign, convert, and OCR in twelve languages. Your files never leave the machine.",
-      "familie": "Documente",
+      "familie": "documents",
       "ordine": 3,
       "culoare": "#b9a3ff",
       "halou": "rgba(185,163,255,.2)",
@@ -106,14 +114,18 @@
       "support_mailto": "mailto:contact@sentiora.dev?subject=%5BDocPilot%5D%20Support%20request&amp;body=Product%3A%20Sentiora%20DocPilot%0ARequest%20type%3A%20Technical%20support%0A%0ADescribe%20the%20problem%3A%0A",
       "are_dialog": false,
       "are_script": false,
-      "nume_scurt": "DocPilot"
+      "nume_scurt": "DocPilot",
+      "cod": "03 / DOCUMENTS",
+      "nume_card": "DocPilot",
+      "text_card": "A full PDF and document suite — read, edit pages, redact, sign, convert and OCR, entirely offline.",
+      "link_card": "View product preview ↗"
     },
     {
       "slug": "diskmanager",
       "nume": "Sentiora Disk Manager",
       "titlu": "Sentiora Disk Manager — Read the signs early",
       "descriere": "Sentiora Disk Manager reads SMART and NVMe data directly from your drives, tracks health over time and keeps data-changing tools safely guarded.",
-      "familie": "Sistem",
+      "familie": "system",
       "ordine": 4,
       "culoare": "#aeb1ff",
       "halou": "rgba(64,67,160,.34)",
@@ -142,7 +154,29 @@
       "support_mailto": "mailto:contact@sentiora.dev?subject=%5BDisk%20Manager%5D%20Support%20request&amp;body=Product%3A%20Sentiora%20Disk%20Manager%0ARequest%20type%3A%20Technical%20support%0AVersion%3A%202.0.11%0A%0ADescribe%20the%20problem%3A%0A",
       "are_dialog": true,
       "are_script": true,
-      "nume_scurt": "DiskManager"
+      "nume_scurt": "DiskManager",
+      "cod": "04 / WINDOWS STORAGE",
+      "nume_card": "Disk Manager",
+      "text_card": "SMART and NVMe health, surface scan, benchmark, space analysis and clear disk guidance.",
+      "link_card": "View product &amp; download ↗"
     }
-  ]
+  ],
+  "familii": [
+    {
+      "id": "comics",
+      "nume": "Comics",
+      "ordine": 1
+    },
+    {
+      "id": "system",
+      "nume": "System tools",
+      "ordine": 2
+    },
+    {
+      "id": "documents",
+      "nume": "Documents",
+      "ordine": 3
+    }
+  ],
+  "grupeaza_pe_familii": false
 }

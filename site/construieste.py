@@ -96,8 +96,81 @@ def build():
         write(os.path.join(SITE, p["slug"] + ".html"), page)
         print("  %s.html" % p["slug"])
 
+    acasa(data, produse)
     sitemap(produse)
-    print("\n%d pagini generate + sitemap.xml" % len(produse))
+    print("\n%d pagini generate + index.html + sitemap.xml" % len(produse))
+
+
+CUVINTE = {1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six",
+           7: "Seven", 8: "Eight", 9: "Nine", 10: "Ten"}
+
+
+def card(p):
+    return (
+        '          <a class="product-card" href="%s.html" '
+        'style="--product-color:%s;--product-glow:%s">\n'
+        '            <div class="product-card-content">'
+        '<span class="product-code">%s</span>'
+        '<h4><span class="card-sentiora"><picture>'
+        '<source srcset="assets/sentiora-wordmark-4k.webp" type="image/webp">'
+        '<img src="assets/sentiora-wordmark-4k.png" alt="Sentiora" width="560" '
+        'height="70" decoding="async"></picture></span>%s</h4>'
+        '<p>%s</p><span class="product-link">%s</span></div>\n'
+        '          </a>\n'
+        % (p["slug"], p["culoare"], p["halou"], p["cod"],
+           p["nume_card"], p["text_card"], p["link_card"])
+    )
+
+
+def acasa(data, produse):
+    """Rewrite the product block on the home page.
+
+    The count in the sentence and every card come from the data, so adding a
+    product never leaves the home page describing the old catalogue.
+    """
+    path = os.path.join(SITE, "index.html")
+    html = read(path)
+    start, end = "<!-- GENERAT:PRODUSE -->", "<!-- /GENERAT:PRODUSE -->"
+    if start not in html:
+        print("  (index.html nu are marcaje — sarit)")
+        return
+
+    numar = CUVINTE.get(len(produse), str(len(produse)))
+    out = [
+        start, "\n",
+        '        <div class="products-heading" data-reveal>\n',
+        '          <h3>Meet the <span class="heading-sentiora"><picture>'
+        '<source srcset="assets/sentiora-wordmark-4k.webp" type="image/webp">'
+        '<img src="assets/sentiora-wordmark-4k.png" alt="Sentiora" width="560" '
+        'height="70" decoding="async"></picture></span> product family.</h3>\n',
+        '          <p>%s Windows applications that do their work on your own '
+        'machine — no accounts, no uploads, no telemetry.</p>\n' % numar,
+        "        </div>\n\n",
+    ]
+
+    if data.get("grupeaza_pe_familii"):
+        # Worth switching on once the catalogue outgrows a single readable row.
+        for fam in sorted(data["familii"], key=lambda f: f["ordine"]):
+            membri = [p for p in produse if p["familie"] == fam["id"]]
+            if not membri:
+                continue
+            out.append('        <div class="product-family" data-reveal>\n')
+            out.append('          <h4 class="family-name">%s</h4>\n' % fam["nume"])
+            out.append('          <div class="product-grid">\n')
+            out.extend(card(p) for p in membri)
+            out.append("          </div>\n        </div>\n\n")
+    else:
+        out.append('        <div class="product-grid" data-reveal>\n')
+        out.extend(card(p) for p in produse)
+        out.append("        </div>\n\n")
+
+    out.append(end)
+    block = "".join(out)
+
+    before = html[:html.index(start)]
+    after = html[html.index(end) + len(end):]
+    write(path, before + block + after)
+    print("  index.html (%d carduri)" % len(produse))
 
 
 def sitemap(produse):

@@ -372,6 +372,22 @@
 
     .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; border: 1px solid var(--line); background: var(--line); }
 
+    /* Used once the catalogue outgrows a single readable row of cards. Switch
+       it on with "grupeaza_pe_familii" in site/produse.json — until then the
+       grid stays flat, because three headings above four products reads as
+       filing rather than as a family. */
+    .product-family + .product-family { margin-top: 2.75rem; }
+
+    .family-name {
+      margin: 0 0 0.9rem;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
     .product-card {
       position: relative;
       display: flex;
@@ -554,6 +570,7 @@
           </div>
         </div>
 
+<!-- GENERAT:PRODUSE -->
         <div class="products-heading" data-reveal>
           <h3>Meet the <span class="heading-sentiora"><picture><source srcset="assets/sentiora-wordmark-4k.webp" type="image/webp"><img src="assets/sentiora-wordmark-4k.png" alt="Sentiora" width="560" height="70" decoding="async"></picture></span> product family.</h3>
           <p>Four Windows applications that do their work on your own machine — no accounts, no uploads, no telemetry.</p>
@@ -573,6 +590,8 @@
             <div class="product-card-content"><span class="product-code">04 / WINDOWS STORAGE</span><h4><span class="card-sentiora"><picture><source srcset="assets/sentiora-wordmark-4k.webp" type="image/webp"><img src="assets/sentiora-wordmark-4k.png" alt="Sentiora" width="560" height="70" decoding="async"></picture></span>Disk Manager</h4><p>SMART and NVMe health, surface scan, benchmark, space analysis and clear disk guidance.</p><span class="product-link">View product &amp; download ↗</span></div>
           </a>
         </div>
+
+<!-- /GENERAT:PRODUSE -->
 
         <div class="embedded-heading" data-reveal>
           <div class="section-index">/ Principles</div>
