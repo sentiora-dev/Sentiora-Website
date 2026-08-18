@@ -53,10 +53,22 @@ def footer_nav(p, toate):
     return "".join(links)
 
 
+def versiune_css():
+    """A short hash of the stylesheet, appended to its URL.
+
+    Without it a browser keeps serving the copy it already has, so a style fix
+    looks like it did not work until somebody clears their cache — which is not
+    something a visitor will ever do."""
+    import hashlib
+    continut = io.open(os.path.join(SITE, "product.css"), "rb").read()
+    return hashlib.sha256(continut).hexdigest()[:8]
+
+
 def build():
     data = json.loads(read(os.path.join(HERE, "produse.json")))
     produse = sorted(data["produse"], key=lambda p: p["ordine"])
-    sablon = read(os.path.join(HERE, "sablon-produs.html"))
+    sablon = read(os.path.join(HERE, "sablon-produs.html")).replace(
+        "{{CSS_VER}}", versiune_css())
 
     for p in produse:
         # The stored fragments have no indent on their first line; every later
