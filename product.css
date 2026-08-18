@@ -38,10 +38,12 @@ body::before {
   z-index: -1;
   content: "";
   pointer-events: none;
-  opacity: 0.34;
+  /* Drawn at a fixed strength rather than from --line-soft, which is tuned per
+     theme: the same rule was legible on Disk Manager's lighter blue and all but
+     invisible on the near-black pages. */
   background-image:
-    linear-gradient(var(--line-soft) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 5rem 5rem;
   mask-image: linear-gradient(to bottom, black, transparent 76%);
 }
@@ -440,7 +442,10 @@ h1 .product-prefix img {
 
 .hero-brand-emblem img { display: block; width: 100%; height: auto; filter: drop-shadow(0 0 1.6rem rgba(238, 242, 255, 0.16)); }
 
-.product-shot--dashboard { width: min(48rem, calc(100% + 3rem)); }
+/* No bleed past the column. The old screenshot was narrow enough to carry it;
+   the current one ran off the right edge of the screen with its window buttons
+   on the other side of it. */
+.product-shot--dashboard { width: min(48rem, 100%); }
 
 .product-shot {
   margin: 0;
