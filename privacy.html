@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="What each Sentiora application stores, what it can connect to, and what never leaves your computer.">
+  <meta name="theme-color" content="#050505">
+  <title>Privacy — Sentiora</title>
+  <link rel="stylesheet" href="/product.css?v=efbf7f41">
+  <link rel="canonical" href="https://sentiora.dev/privacy.html">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <style>
+    .doc { max-width: 46rem; padding: 4rem 0 6rem; }
+    .doc h1 { margin-bottom: 1.2rem; font-size: clamp(2.4rem, 5vw, 4rem); }
+    .doc .updated { margin-bottom: 3rem; color: var(--faint); font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .doc h2 { margin: 3rem 0 1rem; font-size: clamp(1.3rem, 2.4vw, 1.75rem); letter-spacing: -0.03em; }
+    .doc h3 { margin: 2rem 0 0.6rem; font-size: 1.02rem; }
+    /* Lighter than --muted: this is a page somebody reads end to end, not a
+       caption they glance at, and 4.6:1 is tight for that much text. */
+    .doc p, .doc li { color: #c4c4bd; line-height: 1.75; }
+    .doc p { margin-bottom: 1.1rem; }
+    .doc ul { margin: 0 0 1.4rem; padding-left: 1.1rem; }
+    .doc li { margin-bottom: 0.6rem; }
+    .doc strong { color: var(--ink); font-weight: 600; }
+    .doc code { padding: 0.1em 0.4em; border: 1px solid var(--line); border-radius: 0.25rem; background: var(--surface-raised); color: var(--ink); font-family: var(--mono); font-size: 0.86em; }
+    .doc a { color: var(--accent); border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }
+    .lede { color: var(--ink) !important; font-size: 1.1rem; }
+  </style>
+</head>
+<body style="--accent:#d5ff70;--accent-soft:rgba(213,255,112,.13)">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand-wordmark" href="/" aria-label="Sentiora home"><picture><source srcset="/assets/sentiora-wordmark-4k.webp" type="image/webp"><img class="brand-wordmark-name" src="/assets/sentiora-wordmark-4k.png" alt="" width="560" height="70" decoding="async"></picture><span class="brand-wordmark-tagline">Intelligence. Software. Evolution.</span></a>
+      <nav class="header-nav" aria-label="Main navigation"><a href="/">Home ↗</a></nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="shell doc">
+      <h1>Privacy</h1>
+      <p class="updated">Applies to all Sentiora applications</p>
+
+      <p class="lede">Sentiora runs no service that your data passes through. There is no Sentiora account, no analytics, no advertising identifier, and no server of ours between you and your files.</p>
+
+      <p>That is not the same as saying the applications never use the internet. Some of them can, for things you switch on yourself. This page lists every one of those, so you can decide about each.</p>
+
+      <h2>What is stored, and where</h2>
+
+      <p>Everything an application remembers is written to your own computer, in its own folder under <code>AppData\Local</code> — settings, licence, health history, reports and logs. Disk Manager uses <code>SentioraDiskManager</code>, and each product has its own so they cannot overwrite one another.</p>
+
+      <p>None of it is uploaded. If you delete the folder, it is gone; we hold no copy, because there is nowhere for a copy to be held.</p>
+
+      <h2>What can connect outward</h2>
+
+      <p>Each of these is off, optional, or something you configure yourself. Nothing here is enabled silently.</p>
+
+      <h3>The AI advisor</h3>
+      <p>Every product that offers AI does it through <strong>a provider you pick and a key you supply</strong> — Claude, ChatGPT, Gemini, Mistral, Groq, DeepSeek, or a model running on your own machine through LM Studio or Ollama. The request goes from your computer straight to that provider. It does not pass through us, and we never see your key or the answer.</p>
+      <p>The key is stored encrypted on your PC. What is sent is the material the feature needs: in Disk Manager, the readings it has taken from your hardware; in DocPilot, the text of the document you loaded. Whatever the provider then does with it is governed by their terms, not ours, which is why you get to choose which one it is.</p>
+      <p>Leave the provider set to <strong>Offline</strong> and Disk Manager sends nothing at all — its own checks still produce the health verdict. DocPilot's assistant falls back to local heuristics with no key and no network.</p>
+
+      <h3>Email alerts</h3>
+      <p>Disk Manager can email you when a drive starts failing. It sends through <strong>your own mail server</strong>, using SMTP settings you enter. The message goes from your computer to your provider; we are not a party to it.</p>
+
+      <h3>The version check</h3>
+      <p>Disk Manager can look at <code>sentiora.dev/versiune.json</code> once a day to see whether a newer release exists. It is a plain file request: it sends no identifier, no licence number and nothing about your machine. A web server sees that a file was requested, as it would for any download. This can be turned off.</p>
+
+      <h3>Driver lookups</h3>
+      <p>Driver Finder queries <strong>Microsoft's own sources</strong> — Windows Update and the Microsoft Update Catalog — using the hardware ID of the device you are asking about. Nothing is sent to Sentiora, and nothing is fetched from third-party driver sites.</p>
+
+      <h3>The licence stop list</h3>
+      <p>Applications read a small signed file from <code>sentiora.dev</code> once a day, listing licences that have been withdrawn. It is a plain file request that carries no licence number and no identifier: the file says which licences are void, and your computer decides locally whether yours is among them. If it cannot be reached, nothing happens.</p>
+
+      <h3>Activation, for multi-seat licences only</h3>
+      <p>Sentiora ComicBubble's <strong>Studio and Enterprise</strong> editions allow a set number of computers, and enforcing that requires counting them. Those editions send the licence key, the buyer's email and an identifier for the machine to an activation service, and can release a seat again when you move to another computer. The <strong>Personal</strong> edition does none of this — its licence is verified offline.</p>
+
+      <h2>Licences</h2>
+      <p>Most Sentiora licences are signed in advance and verified on your computer with a public key built into the application. Buying does not create an account. DocPilot's licence is tied to the buyer's email address, and only a hash of that address is inside the key — the key itself reveals nothing about you.</p>
+
+      <h2>What we never do</h2>
+      <ul>
+        <li>No Sentiora account, ever, for any product.</li>
+        <li>No analytics, usage tracking or crash reporting sent automatically. If you send a fault report, it is because you pressed a button and could read it first.</li>
+        <li>No advertising, and no advertising identifiers.</li>
+        <li>No selling, sharing or brokering of anything. There is no data to sell, because none is collected.</li>
+        <li>No silent connections. Everything above is either off by default or something you set up.</li>
+      </ul>
+
+      <h2>Children</h2>
+      <p>These are tools for maintaining computers, writing documents and drawing comics. They are not directed at children, and they collect nothing from anyone.</p>
+
+      <h2>Changes</h2>
+      <p>If an application ever gains a feature that sends something new, this page changes before that release ships, not after.</p>
+
+      <h2>Questions</h2>
+      <p>Write to <a href="mailto:contact@sentiora.dev?subject=%5BSentiora%5D%20Privacy%20question">contact@sentiora.dev</a>. A person reads it.</p>
+    </section>
+  </main>
+
+  <footer class="product-links">
+    <div class="shell product-links-inner">
+      <span>© 2026 <picture><source srcset="/assets/sentiora-wordmark-4k.webp" type="image/webp"><img class="footer-sentiora" src="/assets/sentiora-wordmark-4k.png" alt="Sentiora" width="560" height="70" decoding="async"></picture></span>
+      <nav aria-label="Sentiora products"><a href="/diskmanager.html">Disk Manager</a><a href="/speechbubbles.html">ComicBubble</a><a href="/opticalburn-suite.html">OpticalBurn Suite</a><a href="/docpilot.html">DocPilot</a></nav>
+    </div>
+  </footer>
+</body>
+</html>
