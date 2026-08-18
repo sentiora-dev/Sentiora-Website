@@ -145,8 +145,8 @@ def acasa(data, produse):
         '<source srcset="assets/sentiora-wordmark-4k.webp" type="image/webp">'
         '<img src="assets/sentiora-wordmark-4k.png" alt="Sentiora" width="560" '
         'height="70" decoding="async"></picture></span> product family.</h3>\n',
-        '          <p>%s Windows applications that do their work on your own '
-        'machine — no accounts, no uploads, no telemetry.</p>\n' % numar,
+        '          <p>%s Windows applications, each built for one job and '
+        'finished in real use.</p>\n' % numar,
         "        </div>\n\n",
     ]
 

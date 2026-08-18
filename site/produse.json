@@ -4,7 +4,7 @@
       "slug": "speechbubbles",
       "nume": "Sentiora ComicBubble",
       "titlu": "Sentiora ComicBubble — Bubble Maker",
-      "descriere": "Speech bubbles for comics. Drag the lettering exactly where you want it, bring your own bubbles or use twelve built-in shapes, and export at 300 DPI for print. Works offline.",
+      "descriere": "Speech bubbles for comics. Drag the lettering exactly where you want it, bring your own bubbles and your own fonts, and export at 300 DPI for print.",
       "familie": "comics",
       "ordine": 1,
       "culoare": "#f8c028",
@@ -85,8 +85,8 @@
     {
       "slug": "docpilot",
       "nume": "Sentiora DocPilot",
-      "titlu": "Sentiora DocPilot — Offline PDF and document suite",
-      "descriere": "A complete PDF and document suite that runs entirely on your PC: read and annotate, edit pages, redact for real, sign, convert, and OCR in twelve languages. Your files never leave the machine.",
+      "titlu": "Sentiora DocPilot — PDF and document suite",
+      "descriere": "A complete PDF and document suite for Windows: read and annotate, edit pages, redact for real, sign, convert, and OCR in twelve bundled languages. The assistant answers locally until you connect a model of your own.",
       "familie": "tools",
       "ordine": 3,
       "culoare": "#d8d8e4",
@@ -119,7 +119,7 @@
       "nume_scurt": "DocPilot",
       "cod": "03 / DOCUMENTS",
       "nume_card": "DocPilot",
-      "text_card": "A full PDF and document suite — read, edit pages, redact, sign, convert and OCR, entirely offline.",
+      "text_card": "A full PDF and document suite — read, edit pages, redact for real, sign, convert and run OCR in twelve languages.",
       "link_card": "View product preview ↗",
       "marca": "marca-docpilot"
     },
@@ -132,9 +132,9 @@
       "ordine": 4,
       "culoare": "#2060e8",
       "halou": "rgba(32,96,232,.30)",
-      "theme_color": "#09093d",
+      "theme_color": "#0b1018",
       "body_class": "diskmanager-theme",
-      "body_style": "--bg:#09093d;--surface:#101050;--surface-raised:#1a1a60;--ink:#f7f7fb;--muted:#b8b9d1;--faint:#797ba8;--line:rgba(240,240,255,.16);--line-soft:rgba(240,240,255,.08);--accent:#4077eb;--accent-soft:rgba(32,96,232,.24)",
+      "body_style": "--bg:#0b1018;--surface:#101820;--surface-raised:#16202b;--ink:#eef1f6;--muted:#aab6c6;--faint:#7d8797;--line:rgba(238,241,246,.16);--line-soft:rgba(238,241,246,.08);--accent:#4077eb;--accent-soft:rgba(32,96,232,.20)",
       "og_image": "og-diskmanager.jpg",
       "nav": [
         {
