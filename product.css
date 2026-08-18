@@ -467,19 +467,20 @@ h1 .product-prefix img {
   color: inherit;
   border: 0;
   text-decoration: none;
-  aspect-ratio: 1216 / 401;
-  background: #080835;
+  background: var(--surface);
   font: inherit;
   text-align: left;
   cursor: zoom-in;
 }
 
+/* No fixed ratio: the screenshot sets its own, so replacing it never crops the
+   window title off one edge and the buttons off the other. */
 .dashboard-crop img {
   position: static;
+  display: block;
   width: 100%;
   max-width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   transition: transform 220ms ease, filter 220ms ease;
 }
 

@@ -126,8 +126,8 @@
     {
       "slug": "diskmanager",
       "nume": "Sentiora Disk Manager",
-      "titlu": "Sentiora Disk Manager — Read the signs early",
-      "descriere": "Sentiora Disk Manager reads SMART and NVMe data directly from your drives, tracks health over time and keeps data-changing tools safely guarded.",
+      "titlu": "Sentiora Disk Manager — Know before the drive fails",
+      "descriere": "A drive logs its own decline for weeks before it fails. Sentiora Disk Manager reads wear, reallocated sectors, temperature and spare capacity straight from SMART, and says in plain words how long the drive has left.",
       "familie": "tools",
       "ordine": 4,
       "culoare": "#2060e8",
@@ -160,7 +160,7 @@
       "nume_scurt": "DiskManager",
       "cod": "04 / WINDOWS STORAGE",
       "nume_card": "Disk Manager",
-      "text_card": "SMART and NVMe health, surface scan, benchmark, space analysis and clear disk guidance.",
+      "text_card": "Reads the health log every drive keeps about itself, and answers the question that matters: how long has this one got?",
       "link_card": "View product &amp; download ↗",
       "marca": "marca-diskmanager"
     }
