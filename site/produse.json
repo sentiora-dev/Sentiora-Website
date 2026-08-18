@@ -127,7 +127,7 @@
       "slug": "diskmanager",
       "nume": "Sentiora Disk Manager",
       "titlu": "Sentiora Disk Manager — Know before the drive fails",
-      "descriere": "A drive logs its own decline for weeks before it fails. Sentiora Disk Manager reads wear, reallocated sectors, temperature and spare capacity straight from SMART, and says in plain words how long the drive has left.",
+      "descriere": "Sentiora Disk Manager reads the SMART data your drive reports and nobody looks at, and turns it into one percentage and one sentence. Surface scan, benchmark, space analyzer, driver lookup through Microsoft's own sources, and the cloning and formatting for when it is already too late. Twelve languages, no account, one payment.",
       "familie": "tools",
       "ordine": 4,
       "culoare": "#2060e8",
@@ -146,6 +146,10 @@
           "text": "Capabilities"
         },
         {
+          "href": "#licence",
+          "text": "Free or paid"
+        },
+        {
           "href": "#access",
           "text": "Download"
         },
@@ -160,7 +164,7 @@
       "nume_scurt": "DiskManager",
       "cod": "04 / WINDOWS STORAGE",
       "nume_card": "Disk Manager",
-      "text_card": "Reads the health log every drive keeps about itself, and answers the question that matters: how long has this one got?",
+      "text_card": "A drive announces its own death months in advance, in numbers nobody reads. This one reads them and answers in a sentence.",
       "link_card": "View product &amp; download ↗",
       "marca": "marca-diskmanager"
     }
