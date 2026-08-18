@@ -1,0 +1,148 @@
+{
+  "produse": [
+    {
+      "slug": "speechbubbles",
+      "nume": "Sentiora ComicBubble",
+      "titlu": "Sentiora ComicBubble — Bubble Maker",
+      "descriere": "Speech bubbles for comics. Drag the lettering exactly where you want it, bring your own bubbles or use twelve built-in shapes, and export at 300 DPI for print. Works offline.",
+      "familie": "Benzi desenate",
+      "ordine": 1,
+      "culoare": "#ffd447",
+      "halou": "rgba(130,79,255,.28)",
+      "theme_color": "#171820",
+      "body_class": "comicbubble-theme",
+      "body_style": "--bg:#13141b;--surface:#1b1d27;--surface-raised:#252837;--ink:#fffaf0;--muted:#b8bac6;--faint:#7b7f93;--line:rgba(255,250,240,.16);--line-soft:rgba(255,250,240,.08);--accent:#ffd447;--accent-soft:rgba(130,79,255,.23)",
+      "og_image": "og-speechbubbles.jpg",
+      "nav": [
+        {
+          "href": "#product-tour",
+          "text": "Product tour"
+        },
+        {
+          "href": "#capabilities",
+          "text": "Capabilities"
+        },
+        {
+          "href": "#access",
+          "text": "Access"
+        },
+        {
+          "href": "index.html",
+          "text": "Home ↗"
+        }
+      ],
+      "support_mailto": "mailto:contact@sentiora.dev?subject=%5BComicBubble%5D%20Support%20request&amp;body=Product%3A%20Sentiora%20ComicBubble%0ARequest%20type%3A%20Technical%20support%0A%0ADescribe%20the%20problem%3A%0A",
+      "are_dialog": true,
+      "are_script": true,
+      "nume_scurt": "ComicBubble"
+    },
+    {
+      "slug": "opticalburn-suite",
+      "nume": "Sentiora OpticalBurn Suite",
+      "titlu": "Sentiora OpticalBurn Suite — Burn and verify discs",
+      "descriere": "Burn, copy, rip and verify CD, DVD and Blu-ray, and rescue discs that are already failing. Bit-by-bit verification, AES-256-GCM encryption and Reed-Solomon recovery. Eleven languages, no account.",
+      "familie": "Sistem",
+      "ordine": 2,
+      "culoare": "#8ee7ff",
+      "halou": "rgba(142,231,255,.2)",
+      "theme_color": "#050505",
+      "body_class": "",
+      "body_style": "--accent:#8ee7ff;--accent-soft:rgba(142,231,255,.13)",
+      "og_image": "og-image.jpg",
+      "nav": [
+        {
+          "href": "#product-tour",
+          "text": "Product tour"
+        },
+        {
+          "href": "#capabilities",
+          "text": "Capabilities"
+        },
+        {
+          "href": "#access",
+          "text": "Access"
+        },
+        {
+          "href": "index.html",
+          "text": "Home ↗"
+        }
+      ],
+      "support_mailto": "mailto:contact@sentiora.dev?subject=%5BOpticalBurn%20Suite%5D%20Support%20request&amp;body=Product%3A%20Sentiora%20OpticalBurn%20Suite%0ARequest%20type%3A%20Technical%20support%0A%0ADescribe%20the%20problem%3A%0A",
+      "are_dialog": false,
+      "are_script": false,
+      "nume_scurt": "OpticalBurn Suite"
+    },
+    {
+      "slug": "docpilot",
+      "nume": "Sentiora DocPilot",
+      "titlu": "Sentiora DocPilot — Offline PDF and document suite",
+      "descriere": "A complete PDF and document suite that runs entirely on your PC: read and annotate, edit pages, redact for real, sign, convert, and OCR in twelve languages. Your files never leave the machine.",
+      "familie": "Documente",
+      "ordine": 3,
+      "culoare": "#b9a3ff",
+      "halou": "rgba(185,163,255,.2)",
+      "theme_color": "#050505",
+      "body_class": "",
+      "body_style": "--accent:#b9a3ff;--accent-soft:rgba(185,163,255,.14)",
+      "og_image": "og-image.jpg",
+      "nav": [
+        {
+          "href": "#product-tour",
+          "text": "Product tour"
+        },
+        {
+          "href": "#capabilities",
+          "text": "Capabilities"
+        },
+        {
+          "href": "#access",
+          "text": "Access"
+        },
+        {
+          "href": "index.html",
+          "text": "Home ↗"
+        }
+      ],
+      "support_mailto": "mailto:contact@sentiora.dev?subject=%5BDocPilot%5D%20Support%20request&amp;body=Product%3A%20Sentiora%20DocPilot%0ARequest%20type%3A%20Technical%20support%0A%0ADescribe%20the%20problem%3A%0A",
+      "are_dialog": false,
+      "are_script": false,
+      "nume_scurt": "DocPilot"
+    },
+    {
+      "slug": "diskmanager",
+      "nume": "Sentiora Disk Manager",
+      "titlu": "Sentiora Disk Manager — Read the signs early",
+      "descriere": "Sentiora Disk Manager reads SMART and NVMe data directly from your drives, tracks health over time and keeps data-changing tools safely guarded.",
+      "familie": "Sistem",
+      "ordine": 4,
+      "culoare": "#aeb1ff",
+      "halou": "rgba(64,67,160,.34)",
+      "theme_color": "#101050",
+      "body_class": "diskmanager-theme",
+      "body_style": "--bg:#09093d;--surface:#101050;--surface-raised:#1a1a60;--ink:#f7f7fb;--muted:#b8b9d1;--faint:#797ba8;--line:rgba(240,240,255,.16);--line-soft:rgba(240,240,255,.08);--accent:#f0f0f0;--accent-soft:rgba(118,122,218,.18)",
+      "og_image": "og-diskmanager.jpg",
+      "nav": [
+        {
+          "href": "#product-tour",
+          "text": "Product tour"
+        },
+        {
+          "href": "#capabilities",
+          "text": "Capabilities"
+        },
+        {
+          "href": "#access",
+          "text": "Download"
+        },
+        {
+          "href": "index.html",
+          "text": "Home ↗"
+        }
+      ],
+      "support_mailto": "mailto:contact@sentiora.dev?subject=%5BDisk%20Manager%5D%20Support%20request&amp;body=Product%3A%20Sentiora%20Disk%20Manager%0ARequest%20type%3A%20Technical%20support%0AVersion%3A%202.0.11%0A%0ADescribe%20the%20problem%3A%0A",
+      "are_dialog": true,
+      "are_script": true,
+      "nume_scurt": "DiskManager"
+    }
+  ]
+}
