@@ -426,7 +426,7 @@ h1 .product-prefix img {
 .diskmanager-theme .site-header { background: rgba(8, 8, 48, 0.84); }
 .diskmanager-theme .hero { position: relative; isolation: isolate; grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr); gap: clamp(2.5rem, 4vw, 4.5rem); padding: 4.5rem 0 5rem; }
 .diskmanager-theme .product-mockup { display: grid; min-width: 0; gap: 2.75rem; justify-items: center; }
-.diskmanager-theme .product-mockup::before { background: radial-gradient(circle, rgba(91, 94, 190, 0.28), transparent 68%); }
+.diskmanager-theme .product-mockup::before { background: radial-gradient(circle, color-mix(in srgb, var(--accent) 30%, transparent), transparent 68%); }
 .diskmanager-theme .app-window { border-color: rgba(240, 240, 255, 0.18); background: rgba(9, 9, 54, 0.97); box-shadow: 0 2rem 7rem rgba(1, 2, 30, 0.62); }
 .diskmanager-theme .window-bar { background: #0d0d45; }
 .diskmanager-theme .app-sidebar { background: #09093a; }
@@ -521,7 +521,11 @@ h1 .product-prefix img {
 
 .product-shot figcaption strong { color: var(--ink); font-family: var(--mono); font-size: 0.59rem; letter-spacing: 0.09em; text-transform: uppercase; }
 
-.tour-section { background: linear-gradient(180deg, rgba(17, 17, 81, 0.28), transparent 24rem); }
+/* Section washes follow the product's own accent. Written as fixed colours they
+   drifted: ComicBubble kept a violet band from an earlier palette while its
+   application is gold. */
+.tour-section,
+.comicbubble-tour { background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 13%, transparent), transparent 25rem); }
 
 .gallery-toolbar {
   display: flex;
@@ -653,8 +657,7 @@ h1 .product-prefix img {
 /* ComicBubble */
 .comicbubble-theme .site-header { background: rgba(19, 20, 27, 0.84); }
 .comicbubble-theme .hero { grid-template-columns: minmax(0, 0.74fr) minmax(32rem, 1.26fr); gap: clamp(2.5rem, 5vw, 5.5rem); }
-.comicbubble-tour { background: linear-gradient(180deg, rgba(109, 60, 230, 0.12), transparent 26rem); }
-.comicbubble-theme .product-mockup::before { background: radial-gradient(circle, rgba(255, 212, 71, 0.14), transparent 68%); }
+.comicbubble-theme .product-mockup::before { background: radial-gradient(circle, color-mix(in srgb, var(--accent) 16%, transparent), transparent 68%); }
 .product-shot--comicbubble { width: min(48rem, calc(100% + 3rem)); border-color: rgba(255, 250, 240, 0.2); background: #171820; box-shadow: 0 1.5rem 5rem rgba(13, 6, 30, 0.52); }
 .comicbubble-app-shot { position: relative; display: block; width: 100%; padding: 0; overflow: hidden; color: inherit; border: 0; background: #171820; font: inherit; text-align: left; cursor: zoom-in; }
 .comicbubble-app-shot img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; transition: transform 220ms ease, filter 220ms ease; }
