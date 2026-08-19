@@ -103,14 +103,90 @@
 
     <section class="section" id="capabilities">
       <div class="shell">
-        <div class="section-head"><div class="section-label">/ Capabilities</div><div><h2>Days, or years. It tells you which.</h2><p>The reading is taken from the drive itself over SMART, with several methods tried in turn — a direct command to the disk, the SMART built into Windows, reliability counters. If none of them work on your drive, it says so rather than inventing a number. The scale is calibrated against a real dying disk, not chosen because it looks tidy.</p></div></div>
+        <div class="section-head"><div class="section-label">/ Capabilities</div><div><h2>Days, or years. It tells you which.</h2><p>The reading is taken from the drive itself over SMART, with several methods tried in turn — a direct command to the disk, the SMART built into Windows, reliability counters. If none of them work on your drive it says so, rather than inventing a number. The scale is calibrated against a real dying disk, not chosen because it looks tidy.</p></div></div>
         <div class="feature-grid">
-          <article class="feature"><div class="feature-number">01 / HEALTH</div><h3>How long this drive has left</h3><p>One percentage per drive, with temperature, wear and spare blocks behind it, and a history filled in quietly in the background — so after a few weeks you are looking at the slope, not at today. Full SMART needs Administrator; without it the application still runs, falls back to what Windows reports, and tells you plainly that it is seeing less. <strong>Reads only.</strong></p></article>
-          <article class="feature"><div class="feature-number">02 / SURFACE</div><h3>Find the weak spots before your files do</h3><p>The map fills in as it reads: green where the drive answers normally, yellow where it is slow, red where it errors — and when a block fails it drops to 4 KB sectors to name the exact address. The <strong>full</strong> scan reads every sector and finds isolated bad ones; it takes hours on a large disk. The <strong>quick</strong> scan samples roughly every 25 MB, about 4% of the surface, in minutes — it finds slow regions and large damage, but it cannot find an isolated sector, and the application says so itself. <strong>Reads only — it cannot damage anything.</strong></p></article>
-          <article class="feature"><div class="feature-number">03 / SPEED &amp; SPACE</div><h3>Tell a tired SSD from a healthy one</h3><p>Sequential reads of 256 MB in 4 MB chunks, then random access at 4K, 64K and 1 MB — how fast it copies large files, and how fast it starts programs. The Space Analyzer shows what filled the drive, folder by folder. <strong>Both read only; the benchmark writes nothing at all.</strong> Windows' own maintenance is here too: check disk has a verify-only mode that changes nothing, and Optimize has an analyse-only mode — <strong>repairing and optimising modify the disk.</strong></p></article>
-          <article class="feature"><div class="feature-number">04 / SAFETY</div><h3>It cannot wipe the wrong disk</h3><p>The application opens in SIMULATION every single time, and in that state the destructive operations simply do not run. Arm it and the bar turns orange for as long as it stays armed. Every one of them then asks again, naming the drive; formatting and the write-based tests want a confirmation code containing the disk number, typed in your own language. The drive Windows runs on never appears in the format or clone lists at all, and the engine asks the system once more immediately before writing — if it cannot verify, it refuses, because on an operation that erases, "I don't know" means no. At format nothing is pre-selected: you pick the disk.</p></article>
-          <article class="feature"><div class="feature-number">05 / PARTS &amp; DRIVERS</div><h3>Only official sources, and it says which</h3><p>Driver Finder locates devices without a working driver and looks the driver up by the part's own hardware ID — through the Microsoft Update Catalog and Windows Update, never a third-party driver site. DLL Doctor recognises the "x.dll is missing" error behind a game that will not start, names the Microsoft package you are actually missing and points at the official address. System detection shows exactly what was recognised on this machine — processor, memory down to DDR4 or DDR5 and its speed, BIOS, drives, graphics card — with a tick for what it read and a question mark for what it could not. <strong>Finding and diagnosing read; installing modifies the system.</strong></p></article>
-          <article class="feature"><div class="feature-number">06 / WATCHING</div><h3>It finds you when you are not looking</h3><p>Temperature thresholds for drives and the graphics card, a tray icon per drive showing its temperature and health colour, and email through your own mail server — so a drive that starts failing on Friday does not wait for Monday. There is also a read-only local API on <code>localhost:8770</code> with two addresses, for anyone automating around it: it listens on localhost alone, answers reads, executes nothing, and is not reachable from the internet. <strong>Reads only.</strong></p></article>
+
+          <article class="feature">
+            <div class="feature-number">01 / HEALTH</div>
+            <h3>How long this drive has left</h3>
+            <ul class="feature-list">
+              <li><strong>One percentage per drive</strong>, not a table of raw attributes</li>
+              <li>Temperature, wear and spare blocks behind it</li>
+              <li><strong>Life left</strong> — one to three years, or days to weeks</li>
+              <li>A history filled in daily, so you see the slope and not just today</li>
+              <li>Full SMART needs Administrator; without it the application still runs, and says what it cannot see</li>
+            </ul>
+            <span class="tag tag--read">Reads only</span>
+          </article>
+
+          <article class="feature">
+            <div class="feature-number">02 / SURFACE SCAN</div>
+            <h3>Find the weak spots before your files do</h3>
+            <ul class="feature-list">
+              <li>A map that fills in as it reads: <strong>green</strong> fine, <strong>yellow</strong> slow, <strong>red</strong> error</li>
+              <li>A failed block narrowed to 4 KB, with its exact address named</li>
+              <li><strong>Full</strong> — every sector, finds isolated bad ones, hours on a large disk</li>
+              <li><strong>Quick</strong> — samples about every 25 MB, roughly 4% of the surface, in minutes</li>
+              <li>Quick finds slow regions and large damage, but <strong>cannot</strong> find an isolated sector — the application says so itself</li>
+            </ul>
+            <span class="tag tag--read">Reads only</span>
+          </article>
+
+          <article class="feature">
+            <div class="feature-number">03 / SPEED &amp; SPACE</div>
+            <h3>Tell a tired SSD from a healthy one</h3>
+            <ul class="feature-list">
+              <li>Sequential read of 256 MB in 4 MB chunks — how fast it copies large files</li>
+              <li>Random access at 4K, 64K and 1 MB — how fast it starts programs</li>
+              <li><strong>The benchmark writes nothing at all</strong></li>
+              <li>Space Analyzer: what filled the drive, folder by folder</li>
+              <li>Check disk has a verify-only mode that changes nothing, and Optimize an analyse-only mode</li>
+            </ul>
+            <span class="tag tag--read">Reads only</span>
+          </article>
+
+          <article class="feature">
+            <div class="feature-number">04 / PARTS &amp; DRIVERS</div>
+            <h3>Official sources, and it says which</h3>
+            <ul class="feature-list">
+              <li>Driver Finder looks each part up by its own hardware ID</li>
+              <li>Through the <strong>Microsoft Update Catalog and Windows Update</strong> — never a third-party driver site</li>
+              <li>DLL Doctor names the Microsoft package behind an "x.dll is missing" error, and gives its official address</li>
+              <li>System detection shows what was recognised — processor, memory down to DDR4 or DDR5 and its speed, BIOS, drives, graphics card</li>
+              <li>A tick for what it read, a question mark for what it could not</li>
+            </ul>
+            <span class="tag tag--read">Finding and diagnosing read</span>
+            <span class="tag tag--write">Installing modifies the system</span>
+          </article>
+
+          <article class="feature">
+            <div class="feature-number">05 / WHAT CHANGES A DISK</div>
+            <h3>It cannot wipe the wrong disk</h3>
+            <ul class="feature-list">
+              <li>Cloning, formatting, initialising, secure erase, repair, optimise and the write-based surface tests</li>
+              <li>All of them <strong>simply do not run</strong> while the application is in simulation — which is how it starts, every time</li>
+              <li>Armed, the bar turns orange and stays orange</li>
+              <li>Each operation asks again, naming the drive</li>
+              <li>Formatting wants a <strong>confirmation code containing the disk number</strong>, typed in your own language</li>
+              <li>The drive Windows runs on never appears in the format or clone lists, and the engine asks the system again immediately before writing — if it cannot verify, it refuses</li>
+              <li>Nothing is pre-selected at format: you pick the disk</li>
+            </ul>
+            <span class="tag tag--erase">Erases — behind ARMED mode</span>
+          </article>
+
+          <article class="feature">
+            <div class="feature-number">06 / WATCHING &amp; ADVICE</div>
+            <h3>It finds you when you are not looking</h3>
+            <ul class="feature-list">
+              <li>Temperature thresholds for drives and the graphics card</li>
+              <li>A tray icon per drive, with its temperature and health colour</li>
+              <li>Email through <strong>your own mail server</strong>, so a drive failing on Friday does not wait for Monday</li>
+              <li>A read-only local API on <code>localhost:8770</code> — listens on localhost alone, executes nothing, unreachable from the internet</li>
+              <li>The AI advisor, off until you add a key of your own — it may offer read-only tools, and you press the button</li>
+            </ul>
+            <span class="tag tag--read">Reads only</span>
+          </article>
+
         </div>
       </div>
     </section>
