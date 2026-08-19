@@ -44,8 +44,8 @@
     {
       "slug": "opticalburn-suite",
       "nume": "Sentiora OpticalBurn Suite",
-      "titlu": "Sentiora OpticalBurn Suite — Burn and verify discs",
-      "descriere": "Burn, copy, rip and verify CD, DVD and Blu-ray, and rescue discs that are already failing. Bit-by-bit verification, AES-256-GCM encryption and Reed-Solomon recovery. Eleven languages, no account.",
+      "titlu": "Sentiora OpticalBurn Suite — Burning is free, rescue is what you pay for",
+      "descriere": "Burn CDs, DVDs and Blu-ray free, for good — no thirty-day countdown and no account. A licence buys the emergency half: recovering a scratched disc, verifying what was written byte by byte, Reed-Solomon protection and AES-256 encryption. Twenty functions, twelve languages.",
       "familie": "tools",
       "ordine": 2,
       "culoare": "#f86868",
@@ -53,7 +53,7 @@
       "theme_color": "#0d0708",
       "body_class": "",
       "body_style": "--bg:#0d0708;--surface:#150e0f;--surface-raised:#1e1516;--ink:#fdf6f4;--muted:#c8b8b6;--faint:#8e7d7c;--line:rgba(253,246,244,.16);--line-soft:rgba(253,246,244,.08);--accent:#f86868;--accent-soft:rgba(248,104,104,.18)",
-      "og_image": "og-image.jpg",
+      "og_image": "og-opticalburn.jpg",
       "nav": [
         {
           "href": "#product-tour",
@@ -61,11 +61,15 @@
         },
         {
           "href": "#capabilities",
-          "text": "Capabilities"
+          "text": "All 20 functions"
+        },
+        {
+          "href": "#licence",
+          "text": "Free or paid"
         },
         {
           "href": "#access",
-          "text": "Access"
+          "text": "Download"
         },
         {
           "href": "index.html",
@@ -78,7 +82,7 @@
       "nume_scurt": "OpticalBurn Suite",
       "cod": "02 / OPTICAL MEDIA",
       "nume_card": "OpticalBurn Suite",
-      "text_card": "Burn, copy, rip and verify CD, DVD and Blu-ray — and rescue the discs that are already failing.",
+      "text_card": "Burning is free for good. You pay the day a disc stops reading and you need what is on it.",
       "link_card": "View product preview ↗",
       "marca": "marca-opticalburn-suite"
     },

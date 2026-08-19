@@ -826,6 +826,23 @@ h1 .product-prefix img {
 .tag--read { color: #6fd6a4; }
 .tag--write { color: #e8b45c; }
 .tag--erase { color: #f08a8c; }
+.tag--free { color: #6fd6a4; }
+.tag--paid { color: var(--accent); }
+
+/* A per-item marker, for lists where the free/paid split runs through the
+   middle of a category rather than along its edge. */
+.free-mark {
+  margin-left: 0.35rem;
+  padding: 0.05em 0.4em;
+  border: 1px solid color-mix(in srgb, #6fd6a4 45%, transparent);
+  border-radius: 2rem;
+  color: #6fd6a4;
+  font-family: var(--mono);
+  font-size: 0.62em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
 
 .feature { display: flex; flex-direction: column; }
 
