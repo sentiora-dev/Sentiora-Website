@@ -12,6 +12,7 @@ follows on its own and stays identical across every page.
 """
 import io
 import json
+import re
 import os
 import sys
 
@@ -64,6 +65,41 @@ def versiune_css():
     return hashlib.sha256(continut).hexdigest()[:8]
 
 
+def amprenteaza(text):
+    """Stamp every picture's address with a short hash of the picture itself.
+
+    Same reason as the stylesheet: a browser that already holds assets/x.webp
+    keeps showing that copy, so replacing the file changes nothing on screen
+    until the visitor clears their cache -- which nobody does. Because the hash
+    comes from the bytes, an untouched picture keeps its address and stays
+    cached; only a picture that actually changed is fetched again.
+    """
+    import hashlib
+
+    memorie = {}
+
+    def amprenta(nume):
+        if nume not in memorie:
+            cale = os.path.join(SITE, "assets", nume)
+            if not os.path.exists(cale):
+                memorie[nume] = None
+            else:
+                octeti = io.open(cale, "rb").read()
+                memorie[nume] = hashlib.sha256(octeti).hexdigest()[:8]
+        return memorie[nume]
+
+    def inlocuieste(m):
+        nume = m.group(1)
+        h = amprenta(nume)
+        return m.group(0) if h is None else "assets/%s?v=%s" % (nume, h)
+
+    # an address may already carry a stamp from the last build; swallow it, so
+    # running the build twice re-stamps rather than leaving yesterday's hash
+    return re.sub(
+        r'assets/([A-Za-z0-9_.-]+\.(?:webp|jpg|png|svg))(?:\?v=[0-9a-f]{8})?(?![?\w])',
+        inlocuieste, text)
+
+
 def build():
     data = json.loads(read(os.path.join(HERE, "produse.json")))
     produse = sorted(data["produse"], key=lambda p: p["ordine"])
@@ -105,10 +141,11 @@ def build():
         ]:
             page = page.replace(token, value)
 
-        write(os.path.join(SITE, p["slug"] + ".html"), page)
+        write(os.path.join(SITE, p["slug"] + ".html"), amprenteaza(page))
         print("  %s.html" % p["slug"])
 
     acasa(data, produse)
+    statice()
     sitemap(produse)
     print("\n%d pagini generate + index.html + sitemap.xml" % len(produse))
 
@@ -183,8 +220,20 @@ def acasa(data, produse):
 
     before = html[:html.index(start)]
     after = html[html.index(end) + len(end):]
-    write(path, before + block + after)
+    write(path, amprenteaza(before + block + after))
     print("  index.html (%d carduri)" % len(produse))
+
+
+def statice():
+    """Stamp the pages that are written by hand rather than generated.
+
+    They are outside the template, but their pictures live in the same folder
+    and go stale in a visitor's cache in exactly the same way."""
+    for nume in ("privacy.html", "404.html"):
+        cale = os.path.join(SITE, nume)
+        if os.path.exists(cale):
+            write(cale, amprenteaza(read(cale)))
+            print("  %s" % nume)
 
 
 def sitemap(produse):

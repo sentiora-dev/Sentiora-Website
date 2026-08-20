@@ -1,35 +1,48 @@
-"""Make every gallery screenshot the same size.
+"""Make every gallery screenshot the same shape.
 
-The gallery box is a fixed 16:9. The captures were not — they ran from 2.23:1
-to almost square — so with the picture fitted inside the box, each application
-window came out a different size and the row looked ragged.
+The gallery box is a fixed 16:9 and the pictures inside it are fitted, not
+cropped. So a capture that is not 16:9 sits in the box with bands down the
+sides while its neighbour fills the box edge to edge, and the row looks ragged.
 
 This pads every gallery image onto one 16:9 canvas, centred, filling the space
 with a colour taken from the image's own border so the join is invisible.
-Nothing is cropped and nothing is scaled up.
+Nothing is cropped, and nothing is scaled up -- every window keeps the size it
+was captured at, which is why two captures can still show the application at
+different sizes. Only the frame is made to match.
 
-Run it after adding a screenshot; it is safe to run again — an image already at
+The list of images is read out of the product pages themselves, so a screenshot
+added to a page is covered without touching this file.
+
+Run it after adding a screenshot; it is safe to run again -- an image already at
 the right size is left alone.
 
     python site/normalizeaza-capturi.py
 """
+import glob
 import io
 import os
+import re
 import statistics
 
 from PIL import Image
 
-ASSETS = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets")
+RADACINA = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ASSETS = os.path.join(RADACINA, "assets")
 LATIME, INALTIME = 1204, 677          # 16:9, the gallery box
 
-# Only gallery images. The hero on each page sizes itself to its own picture.
-GALERIE = [
-    "dm-sanatate-bun", "dm-sanatate-rau", "dm-scanare", "dm-verificare",
-    "dm-benchmark", "dm-ai-intrebare", "dm-ai-setari", "dm-detectie",
-    "dm-drivere", "dm-dll", "dm-test-automat", "dm-armat", "dm-unelte",
-    "ob-ardere", "ob-compilatie", "ob-medii", "ob-multidisc", "ob-salvare",
-    "ob-iso", "ob-meniu-intunecat",
-]
+# Only gallery images -- the hero on each page sizes itself to its own picture.
+# Read straight from the pages so nothing can be forgotten here.
+def galerie():
+    nume = []
+    for pagina in sorted(glob.glob(os.path.join(RADACINA, "*.html"))):
+        text = io.open(pagina, encoding="utf-8").read()
+        # only the cards in the strip: the big picture at the top of each page
+        # opens in the lightbox too, but it is sized to its own shape on purpose
+        for n in re.findall(
+                r'class="gallery-media"[^>]*data-preview-src="assets/([^"]+)\.webp"', text):
+            if n not in nume:
+                nume.append(n)
+    return nume
 
 
 def culoare_margine(im):
@@ -50,7 +63,7 @@ def culoare_margine(im):
 def main():
     print("%-24s %-13s %s" % ("captura", "era", "devine"))
     atinse = sarite = 0
-    for nume in GALERIE:
+    for nume in galerie():
         sursa = os.path.join(ASSETS, nume + ".jpg")
         if not os.path.exists(sursa):
             print("  LIPSA:", nume)
