@@ -25,6 +25,8 @@
 
     * { box-sizing: border-box; }
 
+    .filter-store { position: absolute; width: 0; height: 0; overflow: hidden; }
+
     picture { display: contents; }
 
     html { scroll-behavior: smooth; }
@@ -70,10 +72,13 @@
       z-index: -1;
       pointer-events: none;
       content: "";
-      opacity: 0.26;
-      background-image: linear-gradient(var(--line-soft) 1px, transparent 1px), linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+      /* Fixed strength rather than from --line-soft, which is tuned per theme,
+         and strong enough to actually read on the grey. */
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.085) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.085) 1px, transparent 1px);
       background-size: 5rem 5rem;
-      mask-image: linear-gradient(to bottom, black, transparent 72%);
+      mask-image: linear-gradient(to bottom, black, transparent 82%);
     }
 
     a { color: inherit; text-decoration: none; }
@@ -148,9 +153,9 @@
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(19rem, 0.95fr);
+      grid-template-columns: minmax(0, 0.86fr) minmax(22rem, 1.14fr);
       align-items: center;
-      gap: 3rem;
+      gap: 1.75rem;
       min-height: 100svh;
       padding: 9rem 0 6rem;
     }
@@ -260,7 +265,7 @@
     .brand-hero {
       display: grid;
       place-items: center;
-      width: min(100%, 44rem);
+      width: 100%;
     }
 
     .brand-signature {
@@ -272,9 +277,39 @@
 
     .brand-lockup-image {
       display: block;
-      width: min(100%, 36rem);
+      width: 100%;
       height: auto;
-      filter: drop-shadow(0 0 1.6rem rgba(245, 245, 240, 0.08));
+      filter: drop-shadow(0 0 2.2rem rgba(245, 245, 240, 0.10));
+    }
+
+    /* The mark is two layers: the spiral, and the sphere that used to be baked
+       into the middle of it. Splitting them lets the sphere turn and breathe on
+       its own. Its position is the fraction of the picture it occupied before,
+       so it sits back exactly where it was. */
+    .mark-stack { position: relative; width: min(100%, 52rem); }
+
+    .mark-sphere {
+      position: absolute;
+      top: 33.310%;
+      left: 49.844%;
+      width: 7.394%;
+      height: auto;
+      transform: translate(-50%, -50%);
+      transform-origin: 50% 50%;
+      will-change: transform, filter;
+      animation: sfera-roteste 44s linear infinite, sfera-pluteste 11s ease-in-out infinite;
+      filter: url(#ferofluid) drop-shadow(0 0 1.4rem rgba(245, 245, 240, 0.22));
+    }
+
+    @keyframes sfera-roteste { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+    @keyframes sfera-pluteste {
+      0%, 100% { margin-top: 0; }
+      50%      { margin-top: -0.9%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .mark-sphere { animation: none; filter: drop-shadow(0 0 1.4rem rgba(245, 245, 240, 0.22)); }
     }
 
     .inline-sentiora,
@@ -551,6 +586,20 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
 
+  <!-- Turbulence pushed through a displacement map: the sphere's outline is
+       nudged by a noise field that drifts, so the edge crawls and settles the
+       way a heavy liquid does instead of simply spinning. -->
+  <svg class="filter-store" aria-hidden="true" focusable="false" width="0" height="0">
+    <filter id="ferofluid" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.042 0.055" numOctaves="2" seed="7" result="zgomot">
+        <animate attributeName="baseFrequency" dur="21s" repeatCount="indefinite"
+                 values="0.042 0.055; 0.058 0.040; 0.038 0.060; 0.042 0.055"/>
+      </feTurbulence>
+      <feDisplacementMap id="ferofluid-deplasare" in="SourceGraphic" in2="zgomot"
+                         scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
   <header class="site-header" data-header>
     <div class="shell header-inner">
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
@@ -576,7 +625,10 @@
 
       <div class="hero-visual" data-reveal>
         <div class="brand-hero brand-signature" aria-label="Sentiora logo and wordmark" role="img">
-          <picture><source srcset="assets/sentiora-logo-lockup-4k.webp" type="image/webp"><img class="brand-lockup-image" src="assets/sentiora-logo-lockup-4k.png" alt="" width="1120" height="630" decoding="async"></picture>
+          <div class="mark-stack">
+            <picture><source srcset="assets/marca-s.webp" type="image/webp"><img class="brand-lockup-image" src="assets/marca-s.png" alt="" width="1400" height="899" decoding="async"></picture>
+            <picture><source srcset="assets/sfera.webp" type="image/webp"><img class="mark-sphere" src="assets/sfera.png" alt="" width="384" height="373" decoding="async"></picture>
+          </div>
         </div>
       </div>
     </section>
@@ -721,6 +773,37 @@
         menuToggle.setAttribute("aria-expanded", "false");
       });
     });
+
+    // The sphere reacts to the cursor: the closer the pointer, the further the
+    // noise pushes its outline, so it looks aware of you rather than looping.
+    const sphere = document.querySelector(".mark-sphere");
+    const displace = document.querySelector("#ferofluid-deplasare");
+    const calm = 1.6, agitat = 5.2;
+
+    if (sphere && displace && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      let tinta = calm, acum = calm, pornit = false;
+
+      window.addEventListener("pointermove", (event) => {
+        const b = sphere.getBoundingClientRect();
+        const dx = event.clientX - (b.left + b.width / 2);
+        const dy = event.clientY - (b.top + b.height / 2);
+        const d = Math.hypot(dx, dy);
+        const raza = Math.max(320, b.width * 4);
+        const apropiere = Math.max(0, 1 - d / raza);
+        tinta = calm + (agitat - calm) * apropiere * apropiere;
+        if (!pornit) { pornit = true; requestAnimationFrame(urmeaza); }
+      }, { passive: true });
+
+      const urmeaza = () => {
+        acum += (tinta - acum) * 0.06;
+        displace.setAttribute("scale", acum.toFixed(2));
+        if (Math.abs(tinta - acum) > 0.05 || tinta > calm + 0.1) {
+          requestAnimationFrame(urmeaza);
+        } else {
+          pornit = false;
+        }
+      };
+    }
 
     const revealItems = document.querySelectorAll("[data-reveal]");
     const revealObserver = new IntersectionObserver((entries, observer) => {
