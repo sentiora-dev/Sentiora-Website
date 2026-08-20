@@ -45,7 +45,7 @@
       "slug": "opticalburn-suite",
       "nume": "Sentiora OpticalBurn Suite",
       "titlu": "Sentiora OpticalBurn Suite — Burning is free, rescue is what you pay for",
-      "descriere": "Burn CDs, DVDs and Blu-ray free, for good — no thirty-day countdown and no account. A licence buys the emergency half: recovering a scratched disc, verifying what was written byte by byte, Reed-Solomon protection and AES-256 encryption. Twenty functions, twelve languages.",
+      "descriere": "Burn CDs, DVDs and Blu-ray free — no thirty-day countdown, no account, no ads. A licence buys the emergency half: pulling files off a scratched disc, verifying a burn byte by byte, Reed-Solomon protection against decay, AES-256 encryption. Twenty functions, twelve languages, one payment.",
       "familie": "tools",
       "ordine": 2,
       "culoare": "#f86868",
@@ -82,7 +82,7 @@
       "nume_scurt": "OpticalBurn Suite",
       "cod": "02 / OPTICAL MEDIA",
       "nume_card": "OpticalBurn Suite",
-      "text_card": "Burning is free for good. You pay the day a disc stops reading and you need what is on it.",
+      "text_card": "Burning is free, for good. You pay the day a disc stops reading and you need what is on it.",
       "link_card": "View product preview ↗",
       "marca": "marca-opticalburn-suite"
     },
