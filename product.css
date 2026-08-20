@@ -19,6 +19,11 @@ picture { display: contents; }
 
 html { overflow-x: clip; scroll-behavior: smooth; }
 
+/* The header stays at the top of the window, so an anchor that scrolls its
+   target to y=0 puts the heading underneath it. Every jump stops short by
+   the height of the header plus a little air. */
+[id] { scroll-margin-top: 6.5rem; }
+
 body {
   margin: 0;
   overflow-x: clip;
@@ -74,7 +79,8 @@ button { color: inherit; font: inherit; }
   top: 0;
   z-index: 20;
   border-bottom: 1px solid var(--line-soft);
-  background: rgba(5, 5, 5, 0.78);
+  /* Follows the page, instead of the near-black it was pinned to. */
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
   backdrop-filter: blur(18px);
 }
 
@@ -607,7 +613,7 @@ h1 .product-prefix img {
   border: 0;
   text-decoration: none;
   aspect-ratio: 16 / 9;
-  background: #080835;
+  background: var(--surface);
   font: inherit;
   text-align: left;
   cursor: zoom-in;

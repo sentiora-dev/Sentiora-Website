@@ -29,6 +29,11 @@
 
     html { scroll-behavior: smooth; }
 
+    /* The header sits over the page, so an anchor that scrolls its target to
+       y=0 hides the heading underneath it. Every jump stops short by the
+       header's height plus a little air. */
+    [id] { scroll-margin-top: 6.5rem; }
+
     /* Some people get motion sickness from movement on a page, and say so in
        their system settings. Honour it: the reveal still reveals, it just
        arrives instead of sliding. */
