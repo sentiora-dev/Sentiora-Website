@@ -134,7 +134,7 @@
       "descriere": "Sentiora Disk Manager reads the SMART data your drive reports and nobody looks at, and turns it into one percentage and one sentence. Surface scan, benchmark, space analyzer, driver lookup through Microsoft's own sources, and the cloning and formatting for when it is already too late. Twelve languages, no account, one payment.",
       "familie": "tools",
       "ordine": 4,
-      "culoare": "#2060e8",
+      "culoare": "#477cec",
       "halou": "rgba(32,96,232,.30)",
       "theme_color": "#0b1018",
       "body_class": "diskmanager-theme",
