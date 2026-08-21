@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="What a Sentiora licence is, how you put it into the application, what happens when you change computers, and how to get it back if you lose it.">
+  <meta name="theme-color" content="#050505">
+  <title>Your licence — Sentiora</title>
+  <link rel="stylesheet" href="/product.css?v=aa9279e4">
+  <link rel="canonical" href="https://sentiora.dev/licence.html">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=c5bd17cf">
+  <style>
+    .doc { max-width: 46rem; padding: 4rem 0 6rem; }
+    .doc h1 { margin-bottom: 1.2rem; font-size: clamp(2.4rem, 5vw, 4rem); }
+    .doc .updated { margin-bottom: 3rem; color: var(--faint); font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .doc h2 { margin: 3rem 0 1rem; font-size: clamp(1.3rem, 2.4vw, 1.75rem); letter-spacing: -0.03em; }
+    .doc h3 { margin: 2rem 0 0.6rem; font-size: 1.02rem; }
+    .doc p, .doc li { color: #c4c4bd; line-height: 1.75; }
+    .doc p { margin-bottom: 1.1rem; }
+    .doc ul { margin: 0 0 1.4rem; padding-left: 1.1rem; }
+    .doc li { margin-bottom: 0.6rem; }
+    .doc strong { color: var(--ink); font-weight: 600; }
+    .doc code { padding: 0.1em 0.4em; border: 1px solid var(--line); border-radius: 0.25rem; background: var(--surface-raised); color: var(--ink); font-family: var(--mono); font-size: 0.86em; }
+    .doc a { color: var(--accent); border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }
+    .lede { color: var(--ink) !important; font-size: 1.1rem; }
+
+    /* The four steps, as a numbered run rather than a wall of prose: this is
+       the part somebody reads with the application already open in front of
+       them, so it has to be findable at a glance. */
+    .steps { display: grid; gap: 1px; margin: 2rem 0 2.5rem; border: 1px solid var(--line-soft); border-radius: 0.7rem; background: var(--line-soft); overflow: hidden; }
+    .step { display: grid; grid-template-columns: 2.6rem 1fr; gap: 1rem; padding: 1.25rem 1.35rem; background: var(--surface); }
+    .step-number { color: var(--accent); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; }
+    .step h3 { margin: 0 0 0.35rem; font-size: 1rem; }
+    .step p { margin: 0; font-size: 0.94rem; }
+
+    /* A licence is one long line. Shown as it really looks, so nobody spends
+       an evening wondering whether they were meant to receive a file. */
+    .sample { display: block; padding: 0.9rem 1rem; margin: 0 0 1.4rem; overflow-x: auto; border: 1px solid var(--line); border-radius: 0.5rem; background: var(--surface-raised); color: var(--muted); font-family: var(--mono); font-size: 0.76rem; white-space: nowrap; }
+    .sample b { color: var(--accent); font-weight: 400; }
+
+    .doc table { width: 100%; margin: 0 0 1.6rem; border-collapse: collapse; font-size: 0.92rem; }
+    .doc th { padding: 0 0.7rem 0.6rem 0; color: var(--faint); font-family: var(--mono); font-size: 0.58rem; font-weight: 400; letter-spacing: 0.11em; text-align: left; text-transform: uppercase; }
+    .doc td { padding: 0.7rem 0.7rem 0.7rem 0; border-top: 1px solid var(--line-soft); color: #c4c4bd; vertical-align: top; }
+    .doc td:first-child { color: var(--ink); }
+
+    .aside { padding: 1.1rem 1.3rem; margin: 0 0 1.6rem; border-left: 2px solid var(--accent); border-radius: 0 0.5rem 0.5rem 0; background: rgba(255, 255, 255, 0.03); }
+    .aside p:last-child { margin-bottom: 0; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand-wordmark" href="/" aria-label="Sentiora home"><picture><source srcset="/assets/sentiora-wordmark-4k.webp?v=c0b253e5" type="image/webp"><img class="brand-wordmark-name" src="/assets/sentiora-wordmark-4k.png?v=e96e809b" alt="" width="560" height="70" decoding="async"></picture><span class="brand-wordmark-tagline">Intelligence. Software. Evolution.</span></a>
+      <nav class="header-nav" aria-label="Main navigation"><a href="/">Home ↗</a></nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="shell doc">
+      <h1>Your licence</h1>
+      <p class="updated">Applies to all Sentiora applications</p>
+
+      <p class="lede">A Sentiora licence is a single line of text. You paste it into the application once, and it is yours — checked on your own computer, by the program itself, without asking anyone for permission.</p>
+
+      <h2>What you receive</h2>
+
+      <p>Not an account. Not a password. Not an installer that phones home. One line, looking roughly like this:</p>
+
+      <p class="sample"><b>SDML1</b>.eyJzbiI6IlNETS0yNkgtNEsyUSIsImVkIjoiZnVsbCIsImV4cCI6bnVsbH0.MEQCIH2n<span aria-hidden="true">…</span></p>
+
+      <p>Three parts, separated by dots. The first says which product it belongs to. The middle carries the licence number and the edition. The last is a signature that only Sentiora can produce, and that your copy of the application can check on its own.</p>
+
+      <div class="aside">
+        <p><strong>Your name is not in it.</strong> The middle part holds a licence number and an edition, and nothing else — no name, no email, no machine identifier. That is deliberate: it means a licence can be made before anyone has bought it, and that the file sitting in a shop cannot leak anything about anybody.</p>
+        <p>DocPilot is the one exception, and it says so plainly: its licence is tied to the buyer's email address, so a key that gets passed around can be traced back to whoever passed it. Only a scrambled form of the address is stored, never the address itself.</p>
+      </div>
+
+      <h2>Putting it in</h2>
+
+      <div class="steps">
+        <div class="step">
+          <span class="step-number">01</span>
+          <div>
+            <h3>Copy the whole line</h3>
+            <p>From the first character to the last, including the dots. It is long and it will wrap onto several lines in your email — that is fine, it is still one line. Select all of it.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-number">02</span>
+          <div>
+            <h3>Open the licence window in the application</h3>
+            <p>In DiskManager and OpticalBurn Suite it sits in the main window. In ComicBubble and DocPilot it is under the settings. You are looking for a box to paste into and a button that says Activate.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-number">03</span>
+          <div>
+            <h3>Paste and press Activate</h3>
+            <p>The application checks the signature itself, on your computer. It either turns on, or it tells you exactly what is wrong with the line you pasted.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-number">04</span>
+          <div>
+            <h3>That is the whole of it</h3>
+            <p>No account to create, no email to confirm, nothing to re-enter next month. Keep the line somewhere you will find it again — it is the only thing that proves the licence is yours.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>What each application does with it</h2>
+
+      <table>
+        <thead>
+          <tr><th>Application</th><th>How it checks</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DiskManager</td>
+            <td>Entirely on your computer. It never asks a server whether you are allowed to run.</td>
+          </tr>
+          <tr>
+            <td>OpticalBurn Suite</td>
+            <td>Entirely on your computer, the same way.</td>
+          </tr>
+          <tr>
+            <td>ComicBubble</td>
+            <td>The Personal edition works on your computer alone. Studio and Enterprise cover several machines, so those count how many are in use and need an internet connection to do it.</td>
+          </tr>
+          <tr>
+            <td>DocPilot</td>
+            <td>On your computer, against the email address the licence was bought with.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Changing computers</h2>
+
+      <p>For DiskManager, OpticalBurn Suite, ComicBubble Personal and DocPilot: install the application on the new computer and paste the same line. Nothing needs releasing first, and nothing needs asking. The licence is not tied to the machine.</p>
+
+      <p>For ComicBubble Studio and Enterprise, where the number of machines is what you are paying for, releasing the old machine frees the slot for the new one.</p>
+
+      <h2>If you lose the line</h2>
+
+      <p>Write to <a href="mailto:onlineharddrivemail@gmail.com?subject=Lost%20licence">onlineharddrivemail@gmail.com</a> from the address you bought with, and say which product it was. There is no automatic recovery page, because there is no Sentiora account system to look you up in — a person reads it and sends the line back.</p>
+
+      <h2>Licences that stop working</h2>
+
+      <p>A licence can be withdrawn. It happens when one is refunded, charged back, or found published somewhere for anyone to take.</p>
+
+      <p>The way it works is worth understanding, because it is the only part of Sentiora that touches the internet at all. Each application reads a short list of withdrawn licence numbers from sentiora.dev, once a day. If it cannot reach it — no connection, or the site is down — nothing happens and nothing is said. The application carries on working. It is not a check you have to pass; it is a list that arrives, or does not.</p>
+
+      <p>If yours is on that list and you think it should not be, write to the address above. Nothing is decided by a machine.</p>
+
+      <h2>What is not collected</h2>
+
+      <ul>
+        <li>No account, no password, no sign-in.</li>
+        <li>No usage tracking, no analytics, no advertising identifier.</li>
+        <li>No hardware fingerprint — except the machine count in ComicBubble Studio and Enterprise, which is the thing being sold.</li>
+        <li>Nothing is sent when the licence is entered. The check happens where you are standing.</li>
+      </ul>
+
+      <p>The full account of what every application connects to is on the <a href="/privacy.html">privacy page</a>.</p>
+    </section>
+  </main>
+
+  <footer class="product-links">
+    <div class="shell product-links-inner">
+      <span>© 2026 <picture><source srcset="/assets/sentiora-wordmark-4k.webp?v=c0b253e5" type="image/webp"><img class="footer-sentiora" src="/assets/sentiora-wordmark-4k.png?v=e96e809b" alt="Sentiora" width="560" height="70" decoding="async"></picture></span>
+      <nav aria-label="Sentiora products"><a href="/diskmanager.html">Disk Manager</a><a href="/speechbubbles.html">ComicBubble</a><a href="/opticalburn-suite.html">OpticalBurn Suite</a><a href="/docpilot.html">DocPilot</a></nav>
+    </div>
+  </footer>
+</body>
+</html>

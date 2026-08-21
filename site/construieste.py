@@ -229,10 +229,15 @@ def statice():
 
     They are outside the template, but their pictures live in the same folder
     and go stale in a visitor's cache in exactly the same way."""
-    for nume in ("privacy.html", "404.html"):
+    for nume in ("privacy.html", "404.html", "licence.html"):
         cale = os.path.join(SITE, nume)
         if os.path.exists(cale):
-            write(cale, amprenteaza(read(cale)))
+            text = amprenteaza(read(cale))
+            # these pages write the stylesheet link by hand, so stamp it here
+            # too -- otherwise a style fix never reaches a returning visitor
+            text = re.sub(r'product\.css(?:\?v=[0-9a-f]{8})?',
+                          "product.css?v=" + versiune_css(), text)
+            write(cale, text)
             print("  %s" % nume)
 
 
