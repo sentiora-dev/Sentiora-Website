@@ -100,11 +100,34 @@ def amprenteaza(text):
         inlocuieste, text)
 
 
+def constructie(data):
+    """The under-construction gate, or nothing at all.
+
+    Returns the markup to drop into every page, plus the robots tag that goes
+    in the head. The tag is the half that actually matters: a curtain over a
+    static site stops nobody who wants to read it, but keeping an unfinished
+    site out of search results is real, and that is what noindex does.
+    """
+    if not data.get("in_constructie"):
+        return "", ""
+
+    import hashlib
+    parola = data.get("parola_constructie") or ""
+    amprenta = hashlib.sha256(parola.encode("utf-8")).hexdigest()
+    corp = read(os.path.join(HERE, "constructie.html"))
+    corp = corp.replace("{{PAROLA_HASH}}", amprenta)
+    cap = (
+        '  <meta name=\"robots\" content=\"noindex, nofollow\">\n'
+        '  <!-- While the site is unfinished. Comes off with in_constructie. -->\n')
+    return "\n" + corp + "\n", cap
+
+
 def build():
     data = json.loads(read(os.path.join(HERE, "produse.json")))
     produse = sorted(data["produse"], key=lambda p: p["ordine"])
     sablon = read(os.path.join(HERE, "sablon-produs.html")).replace(
         "{{CSS_VER}}", versiune_css())
+    poarta, roboti = constructie(data)
 
     for p in produse:
         # The stored fragments have no indent on their first line; every later
@@ -125,7 +148,8 @@ def build():
             body = read(spath).rstrip("\n")
             script = "\n  <script>\n    " + body + "\n  </script>\n"
 
-        page = sablon
+        page = sablon.replace("{{CONSTRUCTIE}}", poarta)
+        page = page.replace("{{ROBOTS}}", roboti)
         for token, value in [
             ("{{SLUG}}", p["slug"]),
             ("{{TITLU}}", p["titlu"]),
@@ -222,8 +246,31 @@ def acasa(data, produse):
 
     before = html[:html.index(start)]
     after = html[html.index(end) + len(end):]
-    write(path, amprenteaza(before + block + after))
+    text = amprenteaza(before + block + after)
+    write(path, pune_poarta(text, *constructie(data)))
     print("  index.html (%d carduri)" % len(produse))
+
+
+def store_data():
+    return json.loads(read(os.path.join(HERE, "produse.json")))
+
+
+def pune_poarta(text, poarta, roboti):
+    """Put the gate into a page that is written by hand rather than generated.
+
+    Idempotent: an existing gate is taken out first, so turning the switch off
+    removes it instead of leaving one behind and adding a second.
+    """
+    inceput, sfarsit = "<!-- POARTA -->", "<!-- /POARTA -->"
+    if inceput in text:
+        text = text[:text.index(inceput)] + text[text.index(sfarsit) + len(sfarsit):]
+    text = re.sub(r'\s*<meta name="robots" content="noindex, nofollow">'
+                  r'\s*<!-- While the site is unfinished[^>]*-->', "", text)
+    if not poarta:
+        return text
+    text = text.replace('  <meta name="theme-color"',
+                        roboti + '  <meta name="theme-color"', 1)
+    return text.replace("</body>", inceput + poarta + sfarsit + "</body>", 1)
 
 
 def statice():
@@ -235,6 +282,7 @@ def statice():
         cale = os.path.join(SITE, nume)
         if os.path.exists(cale):
             text = amprenteaza(read(cale))
+            text = pune_poarta(text, *constructie(store_data()))
             # these pages write the stylesheet link by hand, so stamp it here
             # too -- otherwise a style fix never reaches a returning visitor
             text = re.sub(r'product\.css(?:\?v=[0-9a-f]{8})?',

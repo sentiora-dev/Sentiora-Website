@@ -189,5 +189,7 @@
       "ordine": 2
     }
   ],
-  "grupeaza_pe_familii": true
+  "grupeaza_pe_familii": true,
+  "in_constructie": true,
+  "parola_constructie": "1Sentiora!"
 }
