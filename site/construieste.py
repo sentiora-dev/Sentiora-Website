@@ -130,6 +130,8 @@ def build():
             ("{{SLUG}}", p["slug"]),
             ("{{TITLU}}", p["titlu"]),
             ("{{DESCRIERE}}", p["descriere"]),
+            # short one for search results, which cut at about 160
+            ("{{REZUMAT}}", p.get("rezumat") or p["descriere"]),
             ("{{THEME_COLOR}}", p["theme_color"]),
             ("{{OG_IMAGE}}", p["og_image"]),
             ("{{BODY_ATTRS}}", body_attrs(p)),

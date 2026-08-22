@@ -39,12 +39,13 @@
       "nume_card": "ComicBubble",
       "text_card": "Speech bubbles for comics. Bring your own bubbles and your own fonts, and drag the lettering exactly where you want it.",
       "link_card": "View product preview ↗",
-      "marca": "marca-speechbubbles"
+      "marca": "marca-speechbubbles",
+      "rezumat": "Speech bubbles for comics. Place the lettering exactly where you want it, bring your own bubbles and your own fonts, in twelve languages."
     },
     {
       "slug": "opticalburn-suite",
       "nume": "Sentiora OpticalBurn Suite",
-      "titlu": "Sentiora OpticalBurn Suite — Burning is free, rescue is what you pay for",
+      "titlu": "Sentiora OpticalBurn Suite — rescue is the paid half",
       "descriere": "Burn CDs, DVDs and Blu-ray free — no thirty-day countdown, no account, no ads. A licence buys the emergency half: pulling files off a scratched disc, verifying a burn byte by byte, Reed-Solomon protection against decay, AES-256 encryption. Twenty functions, twelve languages, one payment.",
       "familie": "tools",
       "ordine": 2,
@@ -84,7 +85,8 @@
       "nume_card": "OpticalBurn Suite",
       "text_card": "Burning is free, for good. You pay the day a disc stops reading and you need what is on it.",
       "link_card": "View product preview ↗",
-      "marca": "marca-opticalburn-suite"
+      "marca": "marca-opticalburn-suite",
+      "rezumat": "Burn CDs, DVDs and Blu-ray, or rescue a scratched disc sector by sector. Burning is free; rescue is the half a licence pays for."
     },
     {
       "slug": "docpilot",
@@ -125,7 +127,8 @@
       "nume_card": "DocPilot",
       "text_card": "A full PDF and document suite — read, edit pages, redact for real, sign, convert and run OCR in twelve languages.",
       "link_card": "View product preview ↗",
-      "marca": "marca-docpilot"
+      "marca": "marca-docpilot",
+      "rezumat": "Splits, merges and reorders PDFs, and reads what is inside them. Your licence is tied to your email, so there is no account to make."
     },
     {
       "slug": "diskmanager",
@@ -170,7 +173,8 @@
       "nume_card": "Disk Manager",
       "text_card": "A drive announces its own death months in advance, in numbers nobody reads. This one reads them and answers in a sentence.",
       "link_card": "View product &amp; download ↗",
-      "marca": "marca-diskmanager"
+      "marca": "marca-diskmanager",
+      "rezumat": "Reads the SMART data your drive already reports and turns it into one percentage and one sentence. Surface scan, benchmark, space analyzer."
     }
   ],
   "familii": [
